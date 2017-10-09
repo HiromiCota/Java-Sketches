@@ -9,12 +9,19 @@ import javax.swing.*;
 
 /**
  *
- * @author 980453413
+ * File Form.java Computes derivable attributes of a regular polygon. Takes in
+ * an integer and a double for the number of sides and the length of the sides.
+ * Calculates the interior angle, circumradius, apothem, perimeter, area,
+ * circumference of a circumscribed circle, area of that circle, the central
+ * angle, the number of distinct diagonals, and difference between the actual
+ * area and that of the circumscribed circle
+ *
+ * @author Hiromi Cota Platform: PC, Windows 10, Netbeans 8.2, jdk 1.8.0_144
  */
 public class Form extends javax.swing.JFrame {
 
     /**
-     * Creates new form Form
+     * Default constructor for Form class
      */
     public Form() {
         initComponents();
@@ -367,6 +374,11 @@ public class Form extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    /**
+     * Method: generateTitle() Generates a string to use as a title.
+     *
+     * @return String
+     */
     private String generateTitle() {
         DateFormat dateFormatter = new SimpleDateFormat("yyyy/MM/dd");
         Date today = new Date();
@@ -374,6 +386,13 @@ public class Form extends javax.swing.JFrame {
         return (TITLE + dateFormatter.format(today));
     }
 
+    /**
+     * Method: getSides() Parses and validates SidesjTextBox. Returns -1 if
+     * invalid
+     *
+     * @param textbox
+     * @return Integer
+     */
     private int getSides(JTextField textbox) {
         int input = -1, output = -1;
         final int MINIMUM_SIDES = 3;
@@ -391,17 +410,25 @@ public class Form extends javax.swing.JFrame {
                     + " and " + MAXIMUM_SIDES);
             textbox.setText("");
             textbox.requestFocus();
+            System.out.println("Sides error handled");
         }
         return output;
     }
 
+    /**
+     * Method: getLength() Parses and validates LengthjTextField. Returns -1 if
+     * invalid
+     *
+     * @param textbox
+     * @return
+     */
     private double getLength(JTextField textbox) {
         double input = -1, output = -1;
         final double MINIMUM = 0.0;
         try {
             input = Double.parseDouble(textbox.getText());
             if (input <= MINIMUM) {
-                throw new NumberFormatException();
+                throw new NumberFormatException("");
             } else {
                 output = input;
             }
@@ -409,42 +436,69 @@ public class Form extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Side length must be positive.");
             textbox.setText("");
             textbox.requestFocus();
-
+            System.out.println("Length error handled");
         }
         return output;
     }
 
+    /**
+     * Method: CalculatejButtonActionPerformed() Confirms that both input fields
+     * have something to evaluate. Calls validateInput()
+     *
+     * @param evt
+     */
     private void CalculatejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculatejButtonActionPerformed
         // Don't bother running anything if there are missing values.
         if (!SidesjTextField.getText().isEmpty() && !LengthjTextField.getText().isEmpty()) {
-            validateInput(SidesjTextField, SidesjTextField);
+            validateInput(SidesjTextField, LengthjTextField);
         }
     }//GEN-LAST:event_CalculatejButtonActionPerformed
 
+    /**
+     * validateInput() Validates both input textboxes. Calls getSides() and
+     * getLength()
+     *
+     * @param sideBox
+     * @param lengthBox
+     */
     private void validateInput(JTextField sideBox, JTextField lengthBox) {
         int sides;
         double length;
         // Set values
         sides = getSides(sideBox);
-        length = getLength(lengthBox);
-        if (!(sides == -1 || length == -1)) //Error code returned
-        {
-            Calculate(sides, length); //Don't do anything otherwise
+        /* The getSides calls need to be on different lines or a side exception
+        will get caught twice */
+        if (!(sides == -1)) {
+            length = getLength(lengthBox);
+            if (!(length == -1)) {
+                Calculate(sides, length); //Don't do anything otherwise
+            }
         }
     }
 
+    /**
+     * Method: Calculate() Calculates all derived values and stores them as text
+     * in textboxes.
+     *
+     * @param sides
+     * @param length
+     */
     private void Calculate(int sides, double length) {
         // Declare variables
         int diagonals;
         double innerAngle, circumradius, apothem, perimeter, area,
-                circleCircumference, circleArea, errorPercent, centralAngle;
+                circleCircumference, circleArea, errorPercent, centralAngle,
+                temp;
         DecimalFormat fiveDecimals = new DecimalFormat("#,##0.00000");
 
         // Run calculations
+        System.out.println(length);
+        System.out.println(sides);
         innerAngle = (sides - 2) * (180.0 / sides);
-        apothem = length
-                / (2.0 * Math.tan(Math.PI / sides));
-        circumradius = apothem / (Math.cos(Math.PI / sides));
+        temp = Math.PI / (double) sides;
+        apothem = (0.5) * length / Math.tan(temp);
+        circumradius = (.5) * length
+                / (Math.sin(temp)); //apothem  (Math.cos(temp));
         perimeter = sides * length;
         area = (1.0 / 2.0) * sides * apothem * sides;
         centralAngle = 360.0 / sides;
@@ -466,6 +520,12 @@ public class Form extends javax.swing.JFrame {
         CircleCircumferencejTextField.setText(fiveDecimals.format(circleCircumference));
     }
 
+    /**
+     * Method: ClearjButtonActionPerformed() Clears all text fields and sets
+     * focus to SidesjTextField.
+     *
+     * @param evt
+     */
     private void ClearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearjButtonActionPerformed
         SidesjTextField.setText("");
         LengthjTextField.setText("");
@@ -482,6 +542,12 @@ public class Form extends javax.swing.JFrame {
         SidesjTextField.requestFocus();
     }//GEN-LAST:event_ClearjButtonActionPerformed
 
+    /**
+     * PrintjButtonActionPerformed() Prints the whole form. Calls
+     * PrintUtilities.print().
+     *
+     * @param evt
+     */
     private void PrintjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintjButtonActionPerformed
         // Invoke the print function
         PrintUtilities printPage = new PrintUtilities(this);

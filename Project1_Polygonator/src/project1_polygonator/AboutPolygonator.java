@@ -1,21 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project1_polygonator;
 
+import java.awt.Color;
+
 /**
+ * File: AboutPolygonator.java Displays a helpful page that explains how to use
+ * the form and what each output value actually means.
  *
- * @author 980453413
+ * @author Hiromi Cota Platform: PC, Windows 10, Netbeans 8.2, jdk 1.8.0_144
  */
 public class AboutPolygonator extends javax.swing.JFrame {
 
     /**
-     * Creates new form AboutPolygonator
+     * Default constructor for new form AboutPolygonator
      */
     public AboutPolygonator() {
         initComponents();
+
+        this.setBackground(Color.getHSBColor(180, 100, 80));
     }
 
     /**
@@ -27,10 +28,36 @@ public class AboutPolygonator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        AboutjTextArea = new javax.swing.JTextArea();
+        AboutTitlejLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         ClosejButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("About Polygonator");
+        setBackground(new java.awt.Color(0, 204, 204));
+
+        jScrollPane1.setBackground(new java.awt.Color(0, 255, 255));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        AboutjTextArea.setEditable(false);
+        AboutjTextArea.setBackground(new java.awt.Color(0, 204, 204));
+        AboutjTextArea.setColumns(20);
+        AboutjTextArea.setLineWrap(true);
+        AboutjTextArea.setRows(5);
+        AboutjTextArea.setText("The Polygonator 9,000 can be used to derive a great number of facts about any regular polygon.\n\nAfter entering in the number of sides and the length of the sides, press Calculate and you'll find out so much about your polygon!\n\nCurrent calculations include:\nApothem: The measure from the center of the polygon to the center of any side.\nCircumradius: The measure from the center to any vertex.\nInterior angle: The measure of each vertex.\nCentral angle: The angle from the center to two adjacent vertices.\nDistinct Diagonals: The number of different possible lines that can be drawn between vertices, not counting sides. Note: Triangles have no diagonals.\n\nCopyleft 2017 - Hiromi Cota\n");
+        AboutjTextArea.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(AboutjTextArea);
+
+        AboutTitlejLabel.setBackground(new java.awt.Color(51, 255, 255));
+        AboutTitlejLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        AboutTitlejLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AboutTitlejLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project1_polygonator/regularpolygon.gif"))); // NOI18N
+        AboutTitlejLabel.setText("About the Polygonator!");
+
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         ClosejButton.setMnemonic('C');
         ClosejButton.setText("Close");
@@ -39,22 +66,30 @@ public class AboutPolygonator extends javax.swing.JFrame {
                 ClosejButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(ClosejButton);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(ClosejButton)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addComponent(AboutTitlejLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(257, Short.MAX_VALUE)
-                .addComponent(ClosejButton)
-                .addGap(15, 15, 15))
+                .addContainerGap()
+                .addComponent(AboutTitlejLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -100,6 +135,10 @@ public class AboutPolygonator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AboutTitlejLabel;
+    private javax.swing.JTextArea AboutjTextArea;
     private javax.swing.JButton ClosejButton;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

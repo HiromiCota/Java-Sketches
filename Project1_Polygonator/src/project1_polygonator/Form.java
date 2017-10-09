@@ -1,6 +1,10 @@
 package project1_polygonator;
 
 import java.awt.Toolkit;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.*;
 
 /**
@@ -19,6 +23,8 @@ public class Form extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/project1_polygonator/regularpolygon.gif"));
+
+        this.setTitle(generateTitle());
     }
 
     /**
@@ -31,7 +37,6 @@ public class Form extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlHeader = new javax.swing.JPanel();
-        lblIcon = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         pnlInput = new javax.swing.JPanel();
         SidesjLabel = new javax.swing.JLabel();
@@ -73,12 +78,12 @@ public class Form extends javax.swing.JFrame {
         AboutjMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImages(null);
+        setName("polygonFrame"); // NOI18N
         setResizable(false);
 
         pnlHeader.setBackground(new java.awt.Color(255, 255, 255));
         pnlHeader.setBorder(new javax.swing.border.MatteBorder(null));
-
-        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Polygoninator/regularpolygon.gif"))); // NOI18N
 
         lblTitle.setFont(new java.awt.Font("Book Antiqua", 0, 36)); // NOI18N
         lblTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project1_polygonator/regularpolygon.gif"))); // NOI18N
@@ -90,13 +95,10 @@ public class Form extends javax.swing.JFrame {
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblIcon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTitle))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(lblTitle)
@@ -253,7 +255,7 @@ public class Form extends javax.swing.JFrame {
         );
 
         jPanelButtons.setBorder(new javax.swing.border.MatteBorder(null));
-        jPanelButtons.setLayout(new java.awt.GridLayout());
+        jPanelButtons.setLayout(new java.awt.GridLayout(1, 0));
 
         CalculatejButton.setMnemonic('C');
         CalculatejButton.setText("Calculate");
@@ -349,9 +351,7 @@ public class Form extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlInput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanelButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanelButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -367,37 +367,79 @@ public class Form extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private String generateTitle() {
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy/MM/dd");
+        Date today = new Date();
+        final String TITLE = "Regular Polygons - ";
+        return (TITLE + dateFormatter.format(today));
+    }
 
-    private int getInt(JTextField textbox) {
-        int output = -1;
+    private int getSides(JTextField textbox) {
+        int input = -1, output = -1;
+        final int MINIMUM_SIDES = 3;
+        final int MAXIMUM_SIDES = 100000000;
         try {
-            output = Integer.parseInt(textbox.getText());
+            input = Integer.parseInt(textbox.getText());
+            if (input < MINIMUM_SIDES || input > MAXIMUM_SIDES) {
+                throw new NumberFormatException();
+            } else {
+                output = input;
+            }
         } catch (NumberFormatException exp) {
-            JOptionPane.showMessageDialog(null, "Illegal Input");
+            JOptionPane.showMessageDialog(null,
+                    "Number of sides must be between " + MINIMUM_SIDES
+                    + " and " + MAXIMUM_SIDES);
+            textbox.setText("");
+            textbox.requestFocus();
         }
         return output;
     }
 
-    private double getDouble(JTextField textbox) {
-        double output = -1;
+    private double getLength(JTextField textbox) {
+        double input = -1, output = -1;
+        final double MINIMUM = 0.0;
         try {
-            output = Double.parseDouble(textbox.getText());
+            input = Double.parseDouble(textbox.getText());
+            if (input <= MINIMUM) {
+                throw new NumberFormatException();
+            } else {
+                output = input;
+            }
         } catch (NumberFormatException exp) {
-            JOptionPane.showMessageDialog(null, "Illegal Input");
+            JOptionPane.showMessageDialog(null, "Side length must be positive.");
+            textbox.setText("");
+            textbox.requestFocus();
+
         }
         return output;
     }
+
     private void CalculatejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculatejButtonActionPerformed
-        // Declare variables
+        // Don't bother running anything if there are missing values.
+        if (!SidesjTextField.getText().isEmpty() && !LengthjTextField.getText().isEmpty()) {
+            validateInput(SidesjTextField, SidesjTextField);
+        }
+    }//GEN-LAST:event_CalculatejButtonActionPerformed
+
+    private void validateInput(JTextField sideBox, JTextField lengthBox) {
         int sides;
-        double length, innerAngle, circumradius, apothem, perimeter, area,
-                circleCircumference, circleArea, errorPercent, centralAngle;
-
+        double length;
         // Set values
-        sides = getInt(SidesjTextField);
-        length = getDouble(LengthjTextField);
+        sides = getSides(sideBox);
+        length = getLength(lengthBox);
+        if (!(sides == -1 || length == -1)) //Error code returned
+        {
+            Calculate(sides, length); //Don't do anything otherwise
+        }
+    }
 
-        // Additional validation
+    private void Calculate(int sides, double length) {
+        // Declare variables
+        int diagonals;
+        double innerAngle, circumradius, apothem, perimeter, area,
+                circleCircumference, circleArea, errorPercent, centralAngle;
+        DecimalFormat fiveDecimals = new DecimalFormat("#,##0.00000");
+
         // Run calculations
         innerAngle = (sides - 2) * (180.0 / sides);
         apothem = length
@@ -408,28 +450,46 @@ public class Form extends javax.swing.JFrame {
         centralAngle = 360.0 / sides;
         circleCircumference = 2 * apothem * Math.PI;
         circleArea = Math.PI * (Math.pow(apothem, 2.0));
-        errorPercent = 2 * (circleCircumference - perimeter) / circleCircumference;
+        errorPercent = 2 * Math.abs(circleCircumference - perimeter) / circleCircumference;
+        diagonals = sides * (sides - 3) / 2;
 
         // Output results
-        AnglejTextField.setText(String.valueOf(innerAngle));
-        ApothemjTextField.setText(String.valueOf(apothem));
-        AreajTextField.setText(String.valueOf(area));
-        CentralAnglejTextField.setText(String.valueOf(centralAngle));
-        CircleAreajTextField.setText(String.valueOf(circleArea));
-        ErrorjTextField.setText(String.valueOf(errorPercent) + "%");
-
-    }//GEN-LAST:event_CalculatejButtonActionPerformed
+        AnglejTextField.setText(fiveDecimals.format(innerAngle));
+        ApothemjTextField.setText(fiveDecimals.format(apothem));
+        AreajTextField.setText(fiveDecimals.format(area));
+        CentralAnglejTextField.setText(fiveDecimals.format(centralAngle));
+        CircleAreajTextField.setText(fiveDecimals.format(circleArea));
+        ErrorjTextField.setText(fiveDecimals.format(errorPercent) + "%");
+        CircumradiusjTextField.setText(fiveDecimals.format(circumradius));
+        DiagonalsjTextField.setText(String.valueOf(diagonals));
+        PerimeterjTextField.setText(fiveDecimals.format(perimeter));
+        CircleCircumferencejTextField.setText(fiveDecimals.format(circleCircumference));
+    }
 
     private void ClearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearjButtonActionPerformed
-        // TODO add your handling code here:
+        SidesjTextField.setText("");
+        LengthjTextField.setText("");
+        AnglejTextField.setText("");
+        ApothemjTextField.setText("");
+        AreajTextField.setText("");
+        CentralAnglejTextField.setText("");
+        CircleAreajTextField.setText("");
+        ErrorjTextField.setText("");
+        CircumradiusjTextField.setText("");
+        DiagonalsjTextField.setText("");
+        PerimeterjTextField.setText("");
+        CircleCircumferencejTextField.setText("");
+        SidesjTextField.requestFocus();
     }//GEN-LAST:event_ClearjButtonActionPerformed
 
     private void PrintjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintjButtonActionPerformed
-        // TODO add your handling code here:
+        // Invoke the print function
+        PrintUtilities printPage = new PrintUtilities(this);
+        printPage.print();
     }//GEN-LAST:event_PrintjButtonActionPerformed
 
     private void QuitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitjButtonActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_QuitjButtonActionPerformed
 
     private void ClearjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearjMenuItemActionPerformed
@@ -463,16 +523,24 @@ public class Form extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Form.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -519,7 +587,6 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JTextField SidesjTextField;
     private javax.swing.JPanel jPanelButtons;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JLabel lblIcon;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JMenuBar mnuBar;
     private javax.swing.JMenu mnuFile;

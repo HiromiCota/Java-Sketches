@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Approximator;
 
 /**
@@ -16,6 +11,8 @@ public class ApproximatorGUI extends javax.swing.JFrame {
      */
     public ApproximatorGUI() {
         initComponents();
+        this.getRootPane().setDefaultButton(calcjButton);
+
     }
 
     /**
@@ -309,7 +306,23 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calcjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcjButtonActionPerformed
-        // TODO add your handling code here:
+        // Get requested precision
+        int terms = 0;
+        try {
+            terms = Integer.parseInt(termsjTextField.getText());
+        } catch (NumberFormatException ex) {
+            System.out.println("Nah");
+        }
+        // Which constant is being approximated?
+        if (ejRadioButton.isSelected()) {
+            System.out.println(terms);
+            System.out.println(Approximator.approximateEuler(terms));
+        } else if (pijRadioButton.isSelected()) {// Trigger pi approximation
+            Approximator.approximatePi(terms);
+        } else {
+            // Yell at user
+        }
+
     }//GEN-LAST:event_calcjButtonActionPerformed
 
     private void clearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearjButtonActionPerformed
@@ -321,7 +334,8 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_printjButtonActionPerformed
 
     private void quitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitjButtonActionPerformed
-        // TODO add your handling code here:
+        // Quit out
+        System.exit(0);
     }//GEN-LAST:event_quitjButtonActionPerformed
 
     private void calcjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcjMenuItemActionPerformed

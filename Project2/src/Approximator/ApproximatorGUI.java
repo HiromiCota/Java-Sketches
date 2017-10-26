@@ -1,10 +1,14 @@
 package Approximator;
 
+import static Approximator.Approximator.*;
+
 /**
  *
  * @author 980453413
  */
 public class ApproximatorGUI extends javax.swing.JFrame {
+
+    final int SLIDER_DEFAULT = 33;
 
     /**
      * Creates new form ApproximatorGUI
@@ -34,6 +38,7 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         inputjPanel = new javax.swing.JPanel();
         promptjLabel = new javax.swing.JLabel();
         termsjTextField = new javax.swing.JTextField();
+        precisionjSlider = new javax.swing.JSlider();
         selectorjPanel = new javax.swing.JPanel();
         ejRadioButton = new javax.swing.JRadioButton();
         pijRadioButton = new javax.swing.JRadioButton();
@@ -99,21 +104,33 @@ public class ApproximatorGUI extends javax.swing.JFrame {
 
         promptjLabel.setText("Number of terms in series:");
 
+        precisionjSlider.setMaximum(65);
+        precisionjSlider.setMinimum(2);
+        precisionjSlider.setMinorTickSpacing(1);
+        precisionjSlider.setSnapToTicks(true);
+        precisionjSlider.setToolTipText("");
+        precisionjSlider.setValue(31);
+
         javax.swing.GroupLayout inputjPanelLayout = new javax.swing.GroupLayout(inputjPanel);
         inputjPanel.setLayout(inputjPanelLayout);
         inputjPanelLayout.setHorizontalGroup(
             inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputjPanelLayout.createSequentialGroup()
+            .addGroup(inputjPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(promptjLabel)
-                .addGap(18, 18, 18)
-                .addComponent(termsjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputjPanelLayout.createSequentialGroup()
+                        .addComponent(promptjLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(termsjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(precisionjSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         inputjPanelLayout.setVerticalGroup(
             inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inputjPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(precisionjSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(promptjLabel)
                     .addComponent(termsjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -308,17 +325,20 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     private void calcjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcjButtonActionPerformed
         // Get requested precision
         int terms = 0;
+        /* Drop this if we can. Because it's better UX.
         try {
             terms = Integer.parseInt(termsjTextField.getText());
         } catch (NumberFormatException ex) {
             System.out.println("Nah");
         }
+         */
+        terms = precisionjSlider.getValue();
         // Which constant is being approximated?
         if (ejRadioButton.isSelected()) {
             System.out.println(terms);
-            System.out.println(Approximator.approximateEuler(terms));
+            System.out.println(calcEFactorial(terms));
         } else if (pijRadioButton.isSelected()) {// Trigger pi approximation
-            Approximator.approximatePi(terms);
+            System.out.println(approximatePi(terms));
         } else {
             // Yell at user
         }
@@ -326,7 +346,9 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_calcjButtonActionPerformed
 
     private void clearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearjButtonActionPerformed
-        // TODO add your handling code here:
+        // Reset user-modifiable values to defaults
+        precisionjSlider.setValue(SLIDER_DEFAULT);
+        termsjTextField.setText("");
     }//GEN-LAST:event_clearjButtonActionPerformed
 
     private void printjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printjButtonActionPerformed
@@ -339,11 +361,13 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_quitjButtonActionPerformed
 
     private void calcjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcjMenuItemActionPerformed
-        // TODO add your handling code here:
+        // Trigger calc
+        calcjButton.doClick();
     }//GEN-LAST:event_calcjMenuItemActionPerformed
 
     private void clearjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearjMenuItemActionPerformed
-        // TODO add your handling code here:
+        // Trigger clear
+        clearjButton.doClick();
     }//GEN-LAST:event_clearjMenuItemActionPerformed
 
     private void printjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printjMenuItemActionPerformed
@@ -351,7 +375,8 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_printjMenuItemActionPerformed
 
     private void exitjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitjMenuItemActionPerformed
-        // TODO add your handling code here:
+        // Trigger exit
+        quitjButton.doClick();
     }//GEN-LAST:event_exitjMenuItemActionPerformed
 
     private void aboutjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutjMenuItemActionPerformed
@@ -419,6 +444,7 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel outputjLabel;
     private javax.swing.JRadioButton pijRadioButton;
     private javax.swing.JRadioButtonMenuItem pijRadioButtonMenuItem;
+    private javax.swing.JSlider precisionjSlider;
     private javax.swing.JButton printjButton;
     private javax.swing.JMenuItem printjMenuItem;
     private javax.swing.JLabel promptjLabel;

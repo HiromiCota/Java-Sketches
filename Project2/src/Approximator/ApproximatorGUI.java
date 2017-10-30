@@ -1,6 +1,7 @@
 package Approximator;
 
 import static Approximator.Approximator.*;
+import java.awt.Toolkit;
 
 /**
  *
@@ -16,6 +17,9 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     public ApproximatorGUI() {
         initComponents();
         this.getRootPane().setDefaultButton(calcjButton);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Approximator/piIcon.jpg"));
+        Splash splash = new Splash(this, true);
+        splash.setVisible(true);
 
     }
 

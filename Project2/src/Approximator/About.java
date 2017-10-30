@@ -1,5 +1,7 @@
 package Approximator;
 
+import java.awt.Toolkit;
+
 /**
  * SET THE ICON!
  *
@@ -13,6 +15,7 @@ public class About extends javax.swing.JDialog {
     public About(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Approximator/piIcon.jpg"));
     }
 
     /**

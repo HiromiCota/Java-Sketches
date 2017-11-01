@@ -5,21 +5,25 @@ import java.awt.Toolkit;
 
 /**
  *
- * @author 980453413
+ * @author Hiromi Cota
  */
 public class ApproximatorGUI extends javax.swing.JFrame {
 
     final int SLIDER_DEFAULT = 33;
 
     /**
-     * Creates new form ApproximatorGUI
+     * ApproximatorGUI default constructor
      */
     public ApproximatorGUI() {
         initComponents();
         this.getRootPane().setDefaultButton(calcjButton);
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Approximator/piIcon.jpg"));
         Splash splash = new Splash(this, true);
+        splash.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         splash.setVisible(true);
+        ejRadioButton.setSelected(true);
+        precisionjSlider.setValue(SLIDER_DEFAULT);
 
     }
 
@@ -40,9 +44,8 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         printjButton = new javax.swing.JButton();
         quitjButton = new javax.swing.JButton();
         inputjPanel = new javax.swing.JPanel();
-        promptjLabel = new javax.swing.JLabel();
-        termsjTextField = new javax.swing.JTextField();
         precisionjSlider = new javax.swing.JSlider();
+        precisionjLabel = new javax.swing.JLabel();
         selectorjPanel = new javax.swing.JPanel();
         ejRadioButton = new javax.swing.JRadioButton();
         pijRadioButton = new javax.swing.JRadioButton();
@@ -106,7 +109,7 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         });
         buttonjPanel.add(quitjButton);
 
-        promptjLabel.setText("Number of terms in series:");
+        inputjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         precisionjSlider.setMaximum(65);
         precisionjSlider.setMinimum(2);
@@ -115,29 +118,27 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         precisionjSlider.setToolTipText("");
         precisionjSlider.setValue(31);
 
+        precisionjLabel.setText("Select calculation precision:");
+
         javax.swing.GroupLayout inputjPanelLayout = new javax.swing.GroupLayout(inputjPanel);
         inputjPanel.setLayout(inputjPanelLayout);
         inputjPanelLayout.setHorizontalGroup(
             inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(inputjPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputjPanelLayout.createSequentialGroup()
-                        .addComponent(promptjLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(termsjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(precisionjSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(precisionjLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(precisionjSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         inputjPanelLayout.setVerticalGroup(
             inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inputjPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputjPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(precisionjSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(promptjLabel)
-                    .addComponent(termsjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(inputjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(precisionjSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(precisionjLabel))
+                .addGap(34, 34, 34))
         );
 
         selectorjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -189,10 +190,14 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         statsjPanel.add(timejLabel);
         statsjPanel.add(timejTextField);
 
-        icon1jLabel.setText("give me an icon");
+        titlejPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        icon2jLabel.setText("icon 2");
+        icon1jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Approximator/piPic.jpg"))); // NOI18N
 
+        icon2jLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        icon2jLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Approximator/ePic.jpg"))); // NOI18N
+
+        titlejLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titlejLabel.setText("Approximation of pi and e");
 
         javax.swing.GroupLayout titlejPanelLayout = new javax.swing.GroupLayout(titlejPanel);
@@ -204,7 +209,7 @@ public class ApproximatorGUI extends javax.swing.JFrame {
                 .addComponent(icon1jLabel)
                 .addGap(18, 18, 18)
                 .addComponent(titlejLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(icon2jLabel)
                 .addContainerGap())
         );
@@ -298,12 +303,11 @@ public class ApproximatorGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titlejPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(statsjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
-                                .addComponent(selectorjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inputjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(statsjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+                            .addComponent(selectorjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inputjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(titlejPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -313,8 +317,8 @@ public class ApproximatorGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(titlejPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addComponent(inputjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(selectorjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statsjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,14 +332,7 @@ public class ApproximatorGUI extends javax.swing.JFrame {
 
     private void calcjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcjButtonActionPerformed
         // Get requested precision
-        int terms = 0;
-        /* Drop this if we can. Because it's better UX.
-        try {
-            terms = Integer.parseInt(termsjTextField.getText());
-        } catch (NumberFormatException ex) {
-            System.out.println("Nah");
-        }
-         */
+        int terms;
         terms = precisionjSlider.getValue();
         // Which constant is being approximated?
         if (ejRadioButton.isSelected()) {
@@ -352,7 +349,6 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     private void clearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearjButtonActionPerformed
         // Reset user-modifiable values to defaults
         precisionjSlider.setValue(SLIDER_DEFAULT);
-        termsjTextField.setText("");
     }//GEN-LAST:event_clearjButtonActionPerformed
 
     private void printjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printjButtonActionPerformed
@@ -385,6 +381,9 @@ public class ApproximatorGUI extends javax.swing.JFrame {
 
     private void aboutjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutjMenuItemActionPerformed
         // TODO add your handling code here:
+        About about = new About(this, true);
+        about.setLocationRelativeTo(null);
+        about.setVisible(true);
     }//GEN-LAST:event_aboutjMenuItemActionPerformed
 
     /**
@@ -448,14 +447,13 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel outputjLabel;
     private javax.swing.JRadioButton pijRadioButton;
     private javax.swing.JRadioButtonMenuItem pijRadioButtonMenuItem;
+    private javax.swing.JLabel precisionjLabel;
     private javax.swing.JSlider precisionjSlider;
     private javax.swing.JButton printjButton;
     private javax.swing.JMenuItem printjMenuItem;
-    private javax.swing.JLabel promptjLabel;
     private javax.swing.JButton quitjButton;
     private javax.swing.JPanel selectorjPanel;
     private javax.swing.JPanel statsjPanel;
-    private javax.swing.JTextField termsjTextField;
     private javax.swing.JLabel timejLabel;
     private javax.swing.JTextField timejTextField;
     private javax.swing.JLabel titlejLabel;

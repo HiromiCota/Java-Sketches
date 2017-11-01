@@ -1,6 +1,5 @@
 package Approximator;
 
-import java.awt.Cursor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +10,14 @@ import javax.swing.JButton;
 import javax.swing.SwingWorker;
 
 /**
- * SET THE ICON!
+ * class Splash Description: Modal splash screen with progress bar Automatically
+ * disposes of itself.
+ *
+ * Contains extensions/overrides for Task Overrides propertyChange Overrides
+ * actionPerformed
+ *
+ * WARNING: NO DEFAULT CONSTRUCTOR MUST BE ATTACHED TO A FRAME WARNING: NO
+ * main() MUST BE INVOKED BY ANOTHER CLASS
  *
  * @author Hiromi Cota
  */
@@ -21,6 +27,10 @@ public class Splash extends javax.swing.JDialog
 
     private static Task task;
 
+    /**
+     * class Task Overrides doInBackground() Wastes a semi-random amount of time
+     * in order to irregularly update the progress bar.
+     */
     class Task extends SwingWorker<Void, Void> {
 
         /**
@@ -89,7 +99,6 @@ public class Splash extends javax.swing.JDialog
      */
     @Override
     public void actionPerformed(ActionEvent evt) {
-        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         task = new Task();
         task.addPropertyChangeListener(this);
         task.execute();
@@ -165,48 +174,6 @@ public class Splash extends javax.swing.JDialog
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Splash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Splash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Splash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Splash.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Splash dialog = new Splash(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar jProgressBar;

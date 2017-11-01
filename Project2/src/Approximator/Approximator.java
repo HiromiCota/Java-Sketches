@@ -27,16 +27,17 @@ public class Approximator {
     }
 
     static public double approximatePi(int precision) {
-        double output = 3.0;
-        //System.out.println("This answer is wrong.");
-        output = 2.0 * flipFlopPi();
-
+        double output;
+        output = 2.0 * flipFlopPi(precision);
+        System.out.println("Via flipFlop: " + output);
+        output = calcPiGL(precision);
+        System.out.println("Via Gregory-Leibniz formula: " + output);
         return output;
     }
 
-    static public double flipFlopPi() {
+    static public double flipFlopPi(int precision) {
         double output = 1.0, num = 2.0, denom = 1.0;
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i < precision; i++) {
             if (i == 1) {
                 output *= num / denom;
             } else if (i % 2 == 0) {
@@ -46,9 +47,18 @@ public class Approximator {
                 num += 2.0;
                 output *= num / denom;
             }
-            //System.out.println(output);
         }
-        //output *= 2.0;
         return output;
     }
+
+    static public double calcPiGL(int precision) {
+        double output = 1.0, num = 1.0, denom = 3.0;
+        for (int i = 2; i <= precision; i++) {
+            num = (Math.pow(-1.0, i + 1.0));
+            denom = (2.0 * i - 1.0);
+            output += (num / denom);
+        }
+        return 4 * output;
+    }
+
 }

@@ -126,13 +126,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="buttonjPanel" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="titlejPanel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="statsjPanel" alignment="0" pref="426" max="32767" attributes="0"/>
-                              <Component id="selectorjPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="inputjPanel" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="statsjPanel" alignment="0" pref="426" max="32767" attributes="0"/>
+                          <Component id="selectorjPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="inputjPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="titlejPanel" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -147,8 +145,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="titlejPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="inputjPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Component id="inputjPanel" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="selectorjPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="statsjPanel" min="-2" max="-2" attributes="0"/>
@@ -202,46 +200,40 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="inputjPanel">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="promptjLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="termsjTextField" min="-2" pref="80" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="precisionjSlider" alignment="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="precisionjLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="precisionjSlider" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="precisionjSlider" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="promptjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="termsjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="precisionjSlider" min="-2" max="-2" attributes="0"/>
+                      <Component id="precisionjLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="promptjLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Number of terms in series:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="termsjTextField">
-        </Component>
         <Component class="javax.swing.JSlider" name="precisionjSlider">
           <Properties>
             <Property name="maximum" type="int" value="65"/>
@@ -250,6 +242,11 @@
             <Property name="snapToTicks" type="boolean" value="true"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="value" type="int" value="31"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="precisionjLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Select calculation precision:"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -352,6 +349,13 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="titlejPanel">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -361,7 +365,7 @@
                   <Component id="icon1jLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="titlejLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="129" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="icon2jLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -384,16 +388,22 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="icon1jLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="give me an icon"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Approximator/piPic.jpg"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="icon2jLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="icon 2"/>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Approximator/ePic.jpg"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="titlejLabel">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Approximation of pi and e"/>
           </Properties>
         </Component>

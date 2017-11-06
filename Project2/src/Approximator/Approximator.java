@@ -6,18 +6,28 @@ package Approximator;
  */
 public class Approximator {
 
+    static final int STACK_LIMIT = 5000;
+
     static public double calcEFactorial(int precision) {
-        double output;
+        double output = 0.0;
         if (precision == 0) {
             return 1.0;
         }
+        if (precision >= STACK_LIMIT) {
+            precision = STACK_LIMIT;
+        }
         output = (double) ((1.0 / factorial(precision)) + calcEFactorial(precision - 1));
-        System.out.println((double) (1.0 / factorial(precision)));
+
+        System.out.println("Precision: " + precision);
+
         return (output);
     }
 
     static public long factorial(int length) {
         // Exceeds long's limits at length = 66
+        if (length > 65) {
+            length = 65;
+        }
         long output;
         if (length <= 1) {
             return 1;
@@ -53,7 +63,7 @@ public class Approximator {
         for (int i = 1; i <= precision; i++) {
             denom = (2.0 * i - 1.0);
             output += (num / denom);
-            System.out.println("" + num + "/" + denom + "=" + output);
+            //System.out.println("" + num + "/" + denom + "=" + output);
             num *= -1.0;
         }
         return 4 * output;

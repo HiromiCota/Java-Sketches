@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
  */
 public class ApproximatorGUI extends javax.swing.JFrame {
 
-    final int SLIDER_DEFAULT = 33;
+    final int SLIDER_DEFAULT = 500000;
 
     /**
      * ApproximatorGUI default constructor
@@ -115,12 +115,11 @@ public class ApproximatorGUI extends javax.swing.JFrame {
 
         inputjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        precisionjSlider.setMaximum(65);
-        precisionjSlider.setMinimum(2);
-        precisionjSlider.setMinorTickSpacing(1);
+        precisionjSlider.setMaximum(1000000);
+        precisionjSlider.setMinimum(1);
+        precisionjSlider.setMinorTickSpacing(10000);
         precisionjSlider.setSnapToTicks(true);
         precisionjSlider.setToolTipText("");
-        precisionjSlider.setValue(31);
 
         precisionjLabel.setText("Select calculation precision:");
 
@@ -374,22 +373,35 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_calcjButtonActionPerformed
 
     private void calcPi(int precision) {
+        clearLabels();
+        long start = System.nanoTime();
         double GL = calcPiGL(precision);
+        long stop = System.nanoTime();
+        long time = (stop - start) / 1000000; //Convert to ms
         double flip = flipFlopPi(precision);
         DecimalFormat percent = new DecimalFormat("#00.00%");
         setLabels("pi");
+        timejTextField.setText(String.valueOf(time));
         output1jTextField.setText("" + GL);
         output2jTextField.setText("" + flip);
         errorjTextField.setText("" + percent.format(Math.abs(Math.PI - GL)));
     }
 
     private void calcE(int precision) {
+        clearLabels();
+        long start = System.nanoTime();
         double factorial = calcEFactorial(precision);
-        //double other = calcEBleh(precision); //WRITE ANOTHER APPROXIMATION!
+        long stop = System.nanoTime();
+        long time = (stop - start) / 1000000; //Convert to ms*/
+
+        //factorial = calcEFactorial(precision);
+        System.out.println("" + precision);
+
         DecimalFormat percent = new DecimalFormat("#00.00%");
         setLabels("e");
+
         output1jTextField.setText("" + factorial);
-        //output1jTextField.setText("" + other);
+        timejTextField.setText(String.valueOf(time));
         errorjTextField.setText("" + percent.format(Math.abs(Math.E - factorial)));
     }
 

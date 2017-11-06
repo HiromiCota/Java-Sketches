@@ -46,6 +46,7 @@ public class Splash extends javax.swing.JDialog
          */
         @Override
         public Void doInBackground() {
+            String loading = "Loading";
             Random random = new Random();
             int progress = 0;
             //Initialize progress property.
@@ -59,6 +60,8 @@ public class Splash extends javax.swing.JDialog
                 //Make random progress.
                 progress += random.nextInt(10);
                 setProgress(Math.min(progress, 100));
+                loadingjLabel.setText(loading);
+                loading += ".";
             }
             if (progress > 100) {
                 task.done();

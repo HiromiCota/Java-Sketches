@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
  */
 public class ApproximatorGUI extends javax.swing.JFrame {
 
-    final int SLIDER_DEFAULT = 33;    
+    final int SLIDER_DEFAULT = 33;
 
     /**
      * ApproximatorGUI default constructor
@@ -364,17 +364,16 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         int terms;
         terms = precisionjSlider.getValue();
         // Which constant is being approximated?
-        if (ejRadioButton.isSelected()) {            
+        if (ejRadioButton.isSelected()) {
             calcE(terms);
-        } else if (pijRadioButton.isSelected()) {// Trigger pi approximation            
+        } else if (pijRadioButton.isSelected()) {// Trigger pi approximation
             calcPi(terms);
         } else {
             // Yell at user
         }
     }//GEN-LAST:event_calcjButtonActionPerformed
 
-    private void calcPi(int precision)
-    {
+    private void calcPi(int precision) {
         double GL = calcPiGL(precision);
         double flip = flipFlopPi(precision);
         DecimalFormat percent = new DecimalFormat("#00.00%");
@@ -383,42 +382,42 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         output2jTextField.setText("" + flip);
         errorjTextField.setText("" + percent.format(Math.abs(Math.PI - GL)));
     }
-    
-    private void calcE(int precision)
-    {
+
+    private void calcE(int precision) {
         double factorial = calcEFactorial(precision);
-        double other = calcEBleh(precision); //WRITE ANOTHER APPROXIMATION!
+        //double other = calcEBleh(precision); //WRITE ANOTHER APPROXIMATION!
         DecimalFormat percent = new DecimalFormat("#00.00%");
         setLabels("e");
         output1jTextField.setText("" + factorial);
-        output1jTextField.setText("" + other);
+        //output1jTextField.setText("" + other);
         errorjTextField.setText("" + percent.format(Math.abs(Math.E - factorial)));
     }
-    private void setLabels(String type)
-    {
+
+    private void setLabels(String type) {
         //Set the labels for the output fields
         clearLabels(); //This shouldn't be necessary, but I trust nothing.
-        if (type.equalsIgnoreCase("pi"))
-        {
+        if (type.equalsIgnoreCase("pi")) {
             output1jLabel.setText("Via Gregory-Leibniz formula: ");
             output2jLabel.setText("Via other formula: ");
-        }
-        else if (type.equalsIgnoreCase("e"))
-        {
-            output1jLabel.setText("Via formula 1: ");
-            output2jLabel.setText("Via formula 2: ");        
+        } else if (type.equalsIgnoreCase("e")) {
+            output1jLabel.setText("Via Gregory-Leibniz formula: ");
+            //output2jLabel.setText("Via formula 2: ");
         }
     }
-    private void clearLabels()
-    {
-            output1jLabel.setText("");
-            output1jLabel.setText("");        
+
+    private void clearLabels() {
+        output1jLabel.setText("");
+        output2jLabel.setText("");
     }
     private void clearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearjButtonActionPerformed
         // Reset values to defaults
         ejRadioButton.setSelected(true);
         precisionjSlider.setValue(SLIDER_DEFAULT);
         clearLabels();
+        output1jTextField.setText("");
+        output2jTextField.setText("");
+        errorjTextField.setText("");
+        timejTextField.setText("");
     }//GEN-LAST:event_clearjButtonActionPerformed
 
     private void printjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printjButtonActionPerformed

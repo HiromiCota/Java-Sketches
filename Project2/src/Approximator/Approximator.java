@@ -37,26 +37,24 @@ public class Approximator {
 
     static public double flipFlopPi(int precision) {
         double output = 1.0, num = 2.0, denom = 1.0;
-        for (int i = 1; i < precision; i++) {
-            if (i == 1) {
-                output *= num / denom;
-            } else if (i % 2 == 0) {
-                denom += 2.0;
-                output *= num / denom;
-            } else {
+        for (int i = 2; i <= precision; i++) {
+            if (i % 2 == 1) {
                 num += 2.0;
-                output *= num / denom;
+            } else {
+                denom += 2.0;
             }
+            output *= (num / denom);
         }
-        return output;
+        return 4 * output;
     }
 
     static public double calcPiGL(int precision) {
-        double output = 1.0, num = 1.0, denom = 3.0;
-        for (int i = 2; i <= precision; i++) {
-            num = (Math.pow(-1.0, i + 1.0));
+        double output = 0.0, num = 1.0, denom = 1.0;
+        for (int i = 1; i <= precision; i++) {
             denom = (2.0 * i - 1.0);
             output += (num / denom);
+            System.out.println("" + num + "/" + denom + "=" + output);
+            num *= -1.0;
         }
         return 4 * output;
     }

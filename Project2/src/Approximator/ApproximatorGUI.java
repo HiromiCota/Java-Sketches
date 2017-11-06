@@ -2,6 +2,7 @@ package Approximator;
 
 import static Approximator.Approximator.*;
 import java.awt.Toolkit;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -363,21 +364,40 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         int terms;
         terms = precisionjSlider.getValue();
         // Which constant is being approximated?
-        if (ejRadioButton.isSelected()) {
-            System.out.println(terms);
-            System.out.println(calcEFactorial(terms));
-            setLabels("e");
-        } else if (pijRadioButton.isSelected()) {// Trigger pi approximation
-            setLabels("pi");
-            System.out.println(approximatePi(terms));
+        if (ejRadioButton.isSelected()) {            
+            calcE(terms);
+        } else if (pijRadioButton.isSelected()) {// Trigger pi approximation            
+            calcPi(terms);
         } else {
             // Yell at user
         }
     }//GEN-LAST:event_calcjButtonActionPerformed
 
+    private void calcPi(int precision)
+    {
+        double GL = calcPiGL(precision);
+        double flip = flipFlopPi(precision);
+        DecimalFormat percent = new DecimalFormat("#00.00%");
+        setLabels("pi");
+        output1jTextField.setText("" + GL);
+        output2jTextField.setText("" + flip);
+        errorjTextField.setText("" + percent.format(Math.abs(Math.PI - GL)));
+    }
+    
+    private void calcE(int precision)
+    {
+        double factorial = calcEFactorial(precision);
+        double other = calcEBleh(precision); //WRITE ANOTHER APPROXIMATION!
+        DecimalFormat percent = new DecimalFormat("#00.00%");
+        setLabels("e");
+        output1jTextField.setText("" + factorial);
+        output1jTextField.setText("" + other);
+        errorjTextField.setText("" + percent.format(Math.abs(Math.E - factorial)));
+    }
     private void setLabels(String type)
     {
         //Set the labels for the output fields
+        clearLabels(); //This shouldn't be necessary, but I trust nothing.
         if (type.equalsIgnoreCase("pi"))
         {
             output1jLabel.setText("Via Gregory-Leibniz formula: ");
@@ -386,7 +406,7 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         else if (type.equalsIgnoreCase("e"))
         {
             output1jLabel.setText("Via formula 1: ");
-            output1jLabel.setText("Via formula 2: ");        
+            output2jLabel.setText("Via formula 2: ");        
         }
     }
     private void clearLabels()

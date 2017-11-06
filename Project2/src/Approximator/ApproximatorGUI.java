@@ -9,7 +9,7 @@ import java.awt.Toolkit;
  */
 public class ApproximatorGUI extends javax.swing.JFrame {
 
-    final int SLIDER_DEFAULT = 33;
+    final int SLIDER_DEFAULT = 33;    
 
     /**
      * ApproximatorGUI default constructor
@@ -24,7 +24,6 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         splash.setVisible(true);
         ejRadioButton.setSelected(true);
         precisionjSlider.setValue(SLIDER_DEFAULT);
-
     }
 
     /**
@@ -50,6 +49,10 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         ejRadioButton = new javax.swing.JRadioButton();
         pijRadioButton = new javax.swing.JRadioButton();
         outputjLabel = new javax.swing.JLabel();
+        output1jTextField = new javax.swing.JTextField();
+        output2jTextField = new javax.swing.JTextField();
+        output1jLabel = new javax.swing.JLabel();
+        output2jLabel = new javax.swing.JLabel();
         statsjPanel = new javax.swing.JPanel();
         errorjLabel = new javax.swing.JLabel();
         errorjTextField = new javax.swing.JTextField();
@@ -149,6 +152,14 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         guibuttonGroup.add(pijRadioButton);
         pijRadioButton.setText("pi");
 
+        output1jTextField.setEditable(false);
+
+        output2jTextField.setEditable(false);
+
+        output1jLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        output2jLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
         javax.swing.GroupLayout selectorjPanelLayout = new javax.swing.GroupLayout(selectorjPanel);
         selectorjPanel.setLayout(selectorjPanelLayout);
         selectorjPanelLayout.setHorizontalGroup(
@@ -157,23 +168,36 @@ public class ApproximatorGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(selectorjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(selectorjPanelLayout.createSequentialGroup()
-                        .addComponent(ejRadioButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(selectorjPanelLayout.createSequentialGroup()
                         .addComponent(pijRadioButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(outputjLabel)))
+                        .addComponent(output2jLabel))
+                    .addGroup(selectorjPanelLayout.createSequentialGroup()
+                        .addComponent(ejRadioButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(output1jLabel)))
+                .addGap(10, 10, 10)
+                .addGroup(selectorjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(output1jTextField)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, selectorjPanelLayout.createSequentialGroup()
+                        .addComponent(outputjLabel)
+                        .addGap(63, 63, 63))
+                    .addComponent(output2jTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
                 .addContainerGap())
         );
         selectorjPanelLayout.setVerticalGroup(
             selectorjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(selectorjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ejRadioButton)
+                .addGroup(selectorjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ejRadioButton)
+                    .addComponent(output1jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(output1jLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(selectorjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pijRadioButton)
-                    .addComponent(outputjLabel))
+                    .addComponent(outputjLabel)
+                    .addComponent(output2jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(output2jLabel))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
@@ -183,11 +207,15 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         errorjLabel.setText("Relative error in approximation:");
         errorjLabel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         statsjPanel.add(errorjLabel);
+
+        errorjTextField.setEditable(false);
         statsjPanel.add(errorjTextField);
 
         timejLabel.setText("Time of execution (in miliseconds):");
         timejLabel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         statsjPanel.add(timejLabel);
+
+        timejTextField.setEditable(false);
         statsjPanel.add(timejTextField);
 
         titlejPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -338,21 +366,45 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         if (ejRadioButton.isSelected()) {
             System.out.println(terms);
             System.out.println(calcEFactorial(terms));
+            setLabels("e");
         } else if (pijRadioButton.isSelected()) {// Trigger pi approximation
+            setLabels("pi");
             System.out.println(approximatePi(terms));
         } else {
             // Yell at user
         }
-
     }//GEN-LAST:event_calcjButtonActionPerformed
 
+    private void setLabels(String type)
+    {
+        //Set the labels for the output fields
+        if (type.equalsIgnoreCase("pi"))
+        {
+            output1jLabel.setText("Via Gregory-Leibniz formula: ");
+            output2jLabel.setText("Via other formula: ");
+        }
+        else if (type.equalsIgnoreCase("e"))
+        {
+            output1jLabel.setText("Via formula 1: ");
+            output1jLabel.setText("Via formula 2: ");        
+        }
+    }
+    private void clearLabels()
+    {
+            output1jLabel.setText("");
+            output1jLabel.setText("");        
+    }
     private void clearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearjButtonActionPerformed
-        // Reset user-modifiable values to defaults
+        // Reset values to defaults
+        ejRadioButton.setSelected(true);
         precisionjSlider.setValue(SLIDER_DEFAULT);
+        clearLabels();
     }//GEN-LAST:event_clearjButtonActionPerformed
 
     private void printjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printjButtonActionPerformed
-        // TODO add your handling code here:
+        // Call PrintUtilities
+        PrintUtilities printThis = new PrintUtilities(this);
+        printThis.print();
     }//GEN-LAST:event_printjButtonActionPerformed
 
     private void quitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitjButtonActionPerformed
@@ -371,7 +423,8 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_clearjMenuItemActionPerformed
 
     private void printjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printjMenuItemActionPerformed
-        // TODO add your handling code here:
+        // Trigger print
+        printjButton.doClick();
     }//GEN-LAST:event_printjMenuItemActionPerformed
 
     private void exitjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitjMenuItemActionPerformed
@@ -444,6 +497,10 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     private javax.swing.JPanel inputjPanel;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.ButtonGroup menubuttonGroup;
+    private javax.swing.JLabel output1jLabel;
+    private javax.swing.JTextField output1jTextField;
+    private javax.swing.JLabel output2jLabel;
+    private javax.swing.JTextField output2jTextField;
     private javax.swing.JLabel outputjLabel;
     private javax.swing.JRadioButton pijRadioButton;
     private javax.swing.JRadioButtonMenuItem pijRadioButtonMenuItem;

@@ -53,6 +53,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JProgressBar" name="jProgressBar">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Wait a few moments."/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="loadingjLabel">
       <Properties>

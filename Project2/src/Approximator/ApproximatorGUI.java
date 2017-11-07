@@ -129,7 +129,7 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         precisionjSlider.setMinimum(1);
         precisionjSlider.setMinorTickSpacing(10000);
         precisionjSlider.setSnapToTicks(true);
-        precisionjSlider.setToolTipText("");
+        precisionjSlider.setToolTipText("Drag left for less accuracy or right for more");
 
         precisionjLabel.setText("Select calculation precision:");
 
@@ -158,11 +158,14 @@ public class ApproximatorGUI extends javax.swing.JFrame {
 
         guibuttonGroup.add(ejRadioButton);
         ejRadioButton.setText("e");
+        ejRadioButton.setToolTipText("Select this to approximate Euler's Number");
 
         guibuttonGroup.add(pijRadioButton);
         pijRadioButton.setText("pi");
+        pijRadioButton.setToolTipText("Select this to approximate pi");
 
         output1jTextField.setEditable(false);
+        output1jTextField.setToolTipText("The approximation will appear here");
 
         output2jTextField.setEditable(false);
 

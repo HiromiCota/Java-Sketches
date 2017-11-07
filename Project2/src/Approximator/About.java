@@ -67,6 +67,7 @@ public class About extends javax.swing.JDialog {
         iconsjPanel.add(eIconjLabel);
 
         OKjButton.setText("OK");
+        OKjButton.setToolTipText("Click OK to close");
         OKjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OKjButtonActionPerformed(evt);

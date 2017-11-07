@@ -143,6 +143,8 @@ public class Splash extends javax.swing.JDialog
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jProgressBar.setToolTipText("Wait a few moments.");
+
         loadingjLabel.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         loadingjLabel.setText("Loading");
 

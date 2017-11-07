@@ -16,8 +16,8 @@ import javax.swing.SwingWorker;
  * Contains extensions/overrides for Task Overrides propertyChange Overrides
  * actionPerformed
  *
- * WARNING: NO DEFAULT CONSTRUCTOR MUST BE ATTACHED TO A FRAME WARNING: NO
- * main() MUST BE INVOKED BY ANOTHER CLASS
+ * WARNING: NO DEFAULT CONSTRUCTOR MUST BE ATTACHED TO A FRAME 
+ * WARNING: NO main()! MUST BE INVOKED BY ANOTHER CLASS!
  *
  * @author Hiromi Cota
  */
@@ -108,7 +108,8 @@ public class Splash extends javax.swing.JDialog
     }
 
     /**
-     * Overloaded Constructor Init, then create a listenable object and trigger
+     * Overloaded Constructor:
+     * Init, then create a listenable object and trigger
      * the listener.
      *
      * @param parent

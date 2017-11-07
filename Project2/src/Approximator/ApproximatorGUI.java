@@ -5,7 +5,16 @@ import java.awt.Toolkit;
 import java.text.DecimalFormat;
 
 /**
- *
+ * File: ApproximatorGUI.java
+ * Creates a GUI that will accept user input and approximate e or pi to a high
+ * degree of precision, calculate the precision and runtime, and output.
+ * 
+ * DEPENDENCIES!
+ * About.java (modal About form)
+ * PrintUtilities (print interface)
+ * Splash.java (modal splash screen)
+ * Approximator.java (Math package)
+ * ePic.jpg, piIcon.jpg, piPic.jpg (image binaries)
  * @author Hiromi Cota
  */
 public class ApproximatorGUI extends javax.swing.JFrame {
@@ -14,6 +23,10 @@ public class ApproximatorGUI extends javax.swing.JFrame {
 
     /**
      * ApproximatorGUI default constructor
+     * Sets Enter shortcut as calcjButton
+     * Assigns window icon
+     * Launches splash screen
+     * Sets default values
      */
     public ApproximatorGUI() {
         initComponents();
@@ -357,11 +370,26 @@ public class ApproximatorGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Function: calcjButtonActionPerformed()
+     * @author: Hiromi Cota
+     * Gets precision from GUI
+     * Triggers calcE() or calcPi(), depending on user input
+     * 
+     * Dependencies:
+     * calcE()
+     * calcPi()
+     * 
+     */
     private void calcjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcjButtonActionPerformed
+        // Threads from previous executions may not have timed out.
+        // CALL GARBAGE COLLECTION NOW!
+        System.gc();
         // Get requested precision
         int terms;
         terms = precisionjSlider.getValue();
+        //Clear the labels every time values are potentially changed.
+        clearLabels();
         // Which constant is being approximated?
         if (ejRadioButton.isSelected()) {
             calcE(terms);
@@ -371,40 +399,70 @@ public class ApproximatorGUI extends javax.swing.JFrame {
             // Yell at user
         }
     }//GEN-LAST:event_calcjButtonActionPerformed
-
+    /**
+     * Function: calcPi()
+     * @author: Hiromi Cota
+     * Calculates pi based on provided input and records runtime.
+     * 
+     * Dependencies:
+     * calcPiGL()
+     * flipFlopPi()
+     * @param precision
+     * 
+     */
     private void calcPi(int precision) {
-        clearLabels();
         long start = System.nanoTime();
         double GL = calcPiGL(precision);
         long stop = System.nanoTime();
         long time = (stop - start) / 1000000; //Convert to ms
         double flip = flipFlopPi(precision);
-        DecimalFormat percent = new DecimalFormat("#00.00%");
+        
+        /*Deprecated formatter, but useful if we need to swap back to 
+        cleaner looking percentages.
+        DecimalFormat percent = new DecimalFormat("#00.00%"); */
+        
         setLabels("pi");
         timejTextField.setText(String.valueOf(time));
         output1jTextField.setText("" + GL);
         output2jTextField.setText("" + flip);
-        errorjTextField.setText("" + percent.format(Math.abs(Math.PI - GL)));
+        errorjTextField.setText("" + (Math.abs(Math.PI - GL)) + "%");
     }
-
+    /**
+     * Function: calcE()
+     * @author: Hiromi Cota
+     * Calculates e and records runtime.
+     * 
+     * Dependencies:
+     * calcEFactorial()
+     * @param precision
+     */
     private void calcE(int precision) {
         clearLabels();
         long start = System.nanoTime();
         double factorial = calcEFactorial(precision);
         long stop = System.nanoTime();
         long time = (stop - start) / 1000000; //Convert to ms*/
-
-        //factorial = calcEFactorial(precision);
+        
         System.out.println("" + precision);
 
-        DecimalFormat percent = new DecimalFormat("#00.00%");
+        /*Deprecated formatter, but useful if we need to swap back to 
+        cleaner looking percentages.
+        DecimalFormat percent = new DecimalFormat("#00.00%"); */
         setLabels("e");
 
         output1jTextField.setText("" + factorial);
         timejTextField.setText(String.valueOf(time));
-        errorjTextField.setText("" + percent.format(Math.abs(Math.E - factorial)));
+        errorjTextField.setText("" + (Math.abs(Math.E - factorial))+ "%");
     }
-
+    /**
+     * Function: setLabels()
+     * @author: Hiromi Cota
+     * Sets output labels to to reflect the functions being invoked
+     * 
+     * WARNING: Type names are hardcoded!
+     * 
+     * @param type
+     */
     private void setLabels(String type) {
         //Set the labels for the output fields
         clearLabels(); //This shouldn't be necessary, but I trust nothing.
@@ -417,10 +475,24 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         }
     }
 
+  /**
+    * Function: clearLabels()
+    * @author: Hiromi Cota
+    * Clears labels.
+    */  
     private void clearLabels() {
         output1jLabel.setText("");
         output2jLabel.setText("");
     }
+    /**
+    * Function: clearjButtonActionPerformed()
+    * @author: Hiromi Cota
+    * Sets values back to defaults.
+    * Blanks all text output fields.
+    * Clears labels.
+    * 
+    * Dependencies: clearLabels()
+    */
     private void clearjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearjButtonActionPerformed
         // Reset values to defaults
         ejRadioButton.setSelected(true);
@@ -431,38 +503,84 @@ public class ApproximatorGUI extends javax.swing.JFrame {
         errorjTextField.setText("");
         timejTextField.setText("");
     }//GEN-LAST:event_clearjButtonActionPerformed
-
+    /**
+     * Function: printjButtonActionPerformed()
+     * @author: Hiromi Cota
+     * Invokes PrintUtilities constructor and calls print() method
+     * 
+     * Dependencies:
+     * PrintUtilities class
+     */
     private void printjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printjButtonActionPerformed
         // Call PrintUtilities
         PrintUtilities printThis = new PrintUtilities(this);
         printThis.print();
     }//GEN-LAST:event_printjButtonActionPerformed
-
+    /**
+     * Function: quitjButtonActionPerformed()
+     * @author: Hiromi Cota
+     * Quits.
+     */
     private void quitjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitjButtonActionPerformed
         // Quit out
         System.exit(0);
     }//GEN-LAST:event_quitjButtonActionPerformed
-
+    /**
+     * Function: calcjMenuItemActionPerformed()
+     * @author: Hiromi Cota
+     * Handles calc trigger from menu
+     * 
+     * Dependencies:
+     * calcjButtonActionPerformed() (implicit call)
+     */
     private void calcjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcjMenuItemActionPerformed
         // Trigger calc
         calcjButton.doClick();
     }//GEN-LAST:event_calcjMenuItemActionPerformed
-
+    /**
+     * Function: clearjMenuItemActionPerformed()
+     * @author: Hiromi Cota
+     * Handles clear trigger from menu
+     * 
+     * Dependencies:
+     * clearjButtonActionPerformed() (implicit call)
+     */
     private void clearjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearjMenuItemActionPerformed
         // Trigger clear
         clearjButton.doClick();
     }//GEN-LAST:event_clearjMenuItemActionPerformed
-
+    /**
+     * Function: printjMenuItemActionPerformed()
+     * @author: Hiromi Cota
+     * handles print trigger from menu
+     * 
+     * Dependencies:
+     * printjButtonActionPerformed() (implicit call)
+     */
     private void printjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printjMenuItemActionPerformed
         // Trigger print
         printjButton.doClick();
     }//GEN-LAST:event_printjMenuItemActionPerformed
-
+    /**
+     * Function: exitjMenuItemActionPerformed
+     * @author: Hiromi Cota
+     * Handles exit trigger from menu
+     * 
+     * Dependencies:
+     * quitjButtonActionPerformed() (implicit call)
+     */
     private void exitjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitjMenuItemActionPerformed
         // Trigger exit
         quitjButton.doClick();
     }//GEN-LAST:event_exitjMenuItemActionPerformed
-
+    /**
+     * Function: aboutjMenuItemActionPerformed()
+     * @author: Hiromi Cota
+     * Handles about trigger from menu. Constructs new About form and displays it.
+     * 
+     * Dependencies:
+     * About class
+     */
     private void aboutjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutjMenuItemActionPerformed
         // TODO add your handling code here:
         About about = new About(this, true);
@@ -471,7 +589,13 @@ public class ApproximatorGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutjMenuItemActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Function: main()
+     * @author: Hiromi Cota
+     * Constructs ApproximatorGUI and displays it.
+     * 
+     * Dependencies: 
+     * ApproximatorGUI constructor 
+     * @param args 
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

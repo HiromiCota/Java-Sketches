@@ -3,14 +3,20 @@ package Approximator;
 import java.awt.Toolkit;
 
 /**
+ * class About Description: Modal About screen 
  *
+ * Contains extensions/overrides for Task Overrides propertyChange Overrides
+ * actionPerformed
+ * 
+ * WARNING: NO main()! MUST BE INVOKED BY ANOTHER CLASS!
  *
  * @author Hiromi Cota
  */
 public class About extends javax.swing.JDialog {
 
     /**
-     * Creates new form About
+     * About default constructor
+     * Sets icon
      */
     public About(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -107,7 +113,11 @@ public class About extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+    * Function: OKjButtonActionPerformed()
+    * @author: Hiromi Cota
+    * Disposes this form    
+    */
     private void OKjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKjButtonActionPerformed
         // Dispose of this dialog
         this.dispose();

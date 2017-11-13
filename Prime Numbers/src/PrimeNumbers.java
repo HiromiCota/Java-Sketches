@@ -477,6 +477,8 @@ public class PrimeNumbers extends JFrame {
                     isPrime = false;
                 }
             }
+        } else if (testVal <= 0) {
+            return !isPrime; //Negatives are not prime.
         }
         return isPrime;
     }
@@ -511,7 +513,7 @@ public class PrimeNumbers extends JFrame {
             int[] primes = new int[max];
             int primeCount = 1;
             int test = 3;
-            StringBuffer output = new StringBuffer("2\t");
+            StringBuffer output = new StringBuffer("The first " + max + " integers are:\n\n2\t");
             while (primeCount < max) {
                 if (isPrime(test)) {
                     primes[primeCount] = test;

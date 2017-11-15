@@ -1,9 +1,9 @@
+package PrimeNumbers;
 
-/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *	Class:		Primes
- *	File:		PrimeNumbers.java
- *	Description:	Displays prime numbers, tests for primeness, prime
- *                       decomposition, and range of primes.
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Class:	Primes File:	PrimeNumbers.java Description:	Displays prime numbers,
+ * tests for primeness, prime decomposition, and range of primes.
  *
  * @author:	Hiromi Cota Environment:	PC, Windows 10, jdk1.8.0_144, NetBeans 8.2
  * Date:	11/6/2017
@@ -11,6 +11,7 @@
  * @see javax.swing.JOptionPane
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
+import static PrimeNumbers.Calculations.*;
 import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +35,8 @@ public class PrimeNumbers extends JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/PI.jpg"));
         //center the form
         this.setLocationRelativeTo(null);
+        disableTextFields();
+        listAllJTextField.setEditable(true);
         listAllJTextField.requestFocus();
     }
 
@@ -59,6 +62,12 @@ public class PrimeNumbers extends JFrame {
         fromJLabel = new javax.swing.JLabel();
         toJLabel = new javax.swing.JLabel();
         highJTextField = new javax.swing.JTextField();
+        goldbachJRadioButton = new javax.swing.JRadioButton();
+        goldbachJTextField = new javax.swing.JTextField();
+        palindromeJRadioButton = new javax.swing.JRadioButton();
+        palindromeJTextField = new javax.swing.JTextField();
+        emirpJRadioButton = new javax.swing.JRadioButton();
+        emirpJTextField = new javax.swing.JTextField();
         displayJPanel = new javax.swing.JPanel();
         displayJScrollPanel = new javax.swing.JScrollPane();
         displayTextArea = new javax.swing.JTextArea();
@@ -77,6 +86,9 @@ public class PrimeNumbers extends JFrame {
         testForPrimeJRadioButtonMenuItem = new javax.swing.JRadioButtonMenuItem();
         primeFactorizationJRadioButtonMenuItem = new javax.swing.JRadioButtonMenuItem();
         rangeOfPrimesJRadioButtonMenuItem = new javax.swing.JRadioButtonMenuItem();
+        goldbachJRadioButtonMenuItem = new javax.swing.JRadioButtonMenuItem();
+        palindromeJRadioButtonMenuItem = new javax.swing.JRadioButtonMenuItem();
+        emirpJRadioButtonMenuItem = new javax.swing.JRadioButtonMenuItem();
         helpJMenu = new javax.swing.JMenu();
         aboutrJMenuItem = new javax.swing.JMenuItem();
 
@@ -204,37 +216,116 @@ public class PrimeNumbers extends JFrame {
             }
         });
 
+        goldbachJRadioButton.setBackground(new java.awt.Color(255, 204, 204));
+        choicebuttonGroup.add(goldbachJRadioButton);
+        goldbachJRadioButton.setFont(new java.awt.Font("MS Sans Serif", 0, 12)); // NOI18N
+        goldbachJRadioButton.setText("Goldback Conjecture:");
+        goldbachJRadioButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                goldbachJRadioButtonItemStateChanged(evt);
+            }
+        });
+        goldbachJRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goldbachJRadioButtonActionPerformed(evt);
+            }
+        });
+
+        goldbachJTextField.setFont(new java.awt.Font("MS Sans Serif", 0, 12)); // NOI18N
+        goldbachJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goldbachJTextFieldActionPerformed(evt);
+            }
+        });
+
+        palindromeJRadioButton.setBackground(new java.awt.Color(255, 204, 204));
+        choicebuttonGroup.add(palindromeJRadioButton);
+        palindromeJRadioButton.setFont(new java.awt.Font("MS Sans Serif", 0, 12)); // NOI18N
+        palindromeJRadioButton.setText("Palindromic Primes:");
+        palindromeJRadioButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                palindromeJRadioButtonItemStateChanged(evt);
+            }
+        });
+        palindromeJRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                palindromeJRadioButtonActionPerformed(evt);
+            }
+        });
+
+        palindromeJTextField.setFont(new java.awt.Font("MS Sans Serif", 0, 12)); // NOI18N
+        palindromeJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                palindromeJTextFieldActionPerformed(evt);
+            }
+        });
+
+        emirpJRadioButton.setBackground(new java.awt.Color(255, 204, 204));
+        choicebuttonGroup.add(emirpJRadioButton);
+        emirpJRadioButton.setFont(new java.awt.Font("MS Sans Serif", 0, 12)); // NOI18N
+        emirpJRadioButton.setText("Emirps:");
+        emirpJRadioButton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                emirpJRadioButtonItemStateChanged(evt);
+            }
+        });
+        emirpJRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emirpJRadioButtonActionPerformed(evt);
+            }
+        });
+
+        emirpJTextField.setFont(new java.awt.Font("MS Sans Serif", 0, 12)); // NOI18N
+        emirpJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emirpJTextFieldActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout choiceJPanelLayout = new org.jdesktop.layout.GroupLayout(choiceJPanel);
         choiceJPanel.setLayout(choiceJPanelLayout);
         choiceJPanelLayout.setHorizontalGroup(
             choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(choiceJPanelLayout.createSequentialGroup()
                 .add(14, 14, 14)
-                .add(listAllJRadioButton)
-                .add(1, 1, 1)
-                .add(listAllJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(choiceJPanelLayout.createSequentialGroup()
-                .add(14, 14, 14)
-                .add(isPrimeJRadioButton)
-                .add(23, 23, 23)
-                .add(isPrimeJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(choiceJPanelLayout.createSequentialGroup()
-                .add(14, 14, 14)
-                .add(factorizationJRadioButton)
-                .add(7, 7, 7)
-                .add(factorizationJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(choiceJPanelLayout.createSequentialGroup()
-                .add(14, 14, 14)
-                .add(rangeJRadioButton))
-            .add(choiceJPanelLayout.createSequentialGroup()
-                .add(54, 54, 54)
-                .add(fromJLabel)
-                .add(1, 1, 1)
-                .add(lowJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(20, 20, 20)
-                .add(toJLabel)
-                .add(6, 6, 6)
-                .add(highJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(choiceJPanelLayout.createSequentialGroup()
+                        .add(choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(choiceJPanelLayout.createSequentialGroup()
+                                .add(emirpJRadioButton)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(emirpJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(choiceJPanelLayout.createSequentialGroup()
+                                .add(152, 174, Short.MAX_VALUE)
+                                .add(choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                    .add(palindromeJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(goldbachJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap())
+                    .add(choiceJPanelLayout.createSequentialGroup()
+                        .add(listAllJRadioButton)
+                        .add(1, 1, 1)
+                        .add(listAllJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(choiceJPanelLayout.createSequentialGroup()
+                        .add(isPrimeJRadioButton)
+                        .add(23, 23, 23)
+                        .add(isPrimeJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(choiceJPanelLayout.createSequentialGroup()
+                        .add(factorizationJRadioButton)
+                        .add(7, 7, 7)
+                        .add(factorizationJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(rangeJRadioButton)
+                    .add(choiceJPanelLayout.createSequentialGroup()
+                        .add(choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(goldbachJRadioButton)
+                            .add(choiceJPanelLayout.createSequentialGroup()
+                                .add(fromJLabel)
+                                .add(1, 1, 1)
+                                .add(lowJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(20, 20, 20)
+                        .add(toJLabel)
+                        .add(6, 6, 6)
+                        .add(highJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 70, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(palindromeJRadioButton)))
         );
         choiceJPanelLayout.setVerticalGroup(
             choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -258,7 +349,20 @@ public class PrimeNumbers extends JFrame {
                     .add(fromJLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(lowJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(toJLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(highJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(highJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(goldbachJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(goldbachJRadioButton))
+                .add(18, 18, 18)
+                .add(choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(palindromeJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(palindromeJRadioButton))
+                .add(18, 18, 18)
+                .add(choiceJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(emirpJTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(emirpJRadioButton))
+                .addContainerGap())
         );
 
         getContentPane().add(choiceJPanel, java.awt.BorderLayout.WEST);
@@ -284,7 +388,8 @@ public class PrimeNumbers extends JFrame {
             displayJPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(displayJPanelLayout.createSequentialGroup()
                 .add(10, 10, 10)
-                .add(displayJScrollPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(displayJScrollPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(displayJPanel, java.awt.BorderLayout.CENTER);
@@ -359,7 +464,6 @@ public class PrimeNumbers extends JFrame {
 
         menubuttonGroup.add(listPrimesJRadioButtonMenuItem);
         listPrimesJRadioButtonMenuItem.setMnemonic('L');
-        listPrimesJRadioButtonMenuItem.setSelected(true);
         listPrimesJRadioButtonMenuItem.setText("List Primes");
         listPrimesJRadioButtonMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -397,6 +501,37 @@ public class PrimeNumbers extends JFrame {
             }
         });
         actionJMenu.add(rangeOfPrimesJRadioButtonMenuItem);
+
+        menubuttonGroup.add(goldbachJRadioButtonMenuItem);
+        goldbachJRadioButtonMenuItem.setMnemonic('G');
+        goldbachJRadioButtonMenuItem.setSelected(true);
+        goldbachJRadioButtonMenuItem.setText("Goldbach Conjecture");
+        goldbachJRadioButtonMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goldbachJRadioButtonMenuItemActionPerformed(evt);
+            }
+        });
+        actionJMenu.add(goldbachJRadioButtonMenuItem);
+
+        menubuttonGroup.add(palindromeJRadioButtonMenuItem);
+        palindromeJRadioButtonMenuItem.setMnemonic('S');
+        palindromeJRadioButtonMenuItem.setText("Show Palindromes");
+        palindromeJRadioButtonMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                palindromeJRadioButtonMenuItemActionPerformed(evt);
+            }
+        });
+        actionJMenu.add(palindromeJRadioButtonMenuItem);
+
+        menubuttonGroup.add(emirpJRadioButtonMenuItem);
+        emirpJRadioButtonMenuItem.setMnemonic('E');
+        emirpJRadioButtonMenuItem.setText("Compute Emirps");
+        emirpJRadioButtonMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emirpJRadioButtonMenuItemActionPerformed(evt);
+            }
+        });
+        actionJMenu.add(emirpJRadioButtonMenuItem);
 
         primesJMenuBar.add(actionJMenu);
 
@@ -453,86 +588,26 @@ public class PrimeNumbers extends JFrame {
                 } else {
                     outputIsPrime(false, Integer.valueOf(isPrimeJTextField.getText()));
                 }
-
                 break;
             case 3:
                 primeFactors();
                 break;
             case 4:
                 range();
-            default: // 5 is a valid return from whichButton, but means nothing.
+                break;
+            case 5:
+                goldbach();
+                break;
+            case 6:
+                palindrome();
+                break;
+            case 7:
+                emirp();
+                break;
+            default: // 8 is a valid return from whichButton, but means nothing.
                 break;
         }
     }//GEN-LAST:event_calculateJButtonActionPerformed
-
-    private Boolean isPrime(int testVal) {
-        boolean isPrime = true;
-        if (testVal > 3) //There's no need to test 1-3
-        {
-            for (int i = 2; i <= Math.sqrt(testVal) && isPrime == true; i++) {
-                int remain = testVal % i;
-                System.out.println(testVal + "%" + i + "=" + remain);
-                if (testVal % i == 0) {
-
-                    isPrime = false;
-                }
-            }
-        } else if (testVal <= 0) {
-            return !isPrime; //Negatives are not prime.
-        }
-        return isPrime;
-    }
-
-    private void outputIsPrime(Boolean isPrime, int number) {
-        displayTextArea.setText(number + " is ");
-        if (isPrime == false) {
-            displayTextArea.append("NOT ");
-        }
-        displayTextArea.append("prime!");
-    }
-
-    private void primeFactors() {
-
-    }
-
-    private void range() {
-
-    }
-
-    // listPrimes();
-    // display the first n prime numbers
-    private void listPrimes() {
-        String message = "Illegal type--inter an integer >= 1 and < "
-                + MAX_INPUT;
-        try {
-            int max = Integer.parseInt(listAllJTextField.getText());
-            if (max < 0 || max > MAX_INPUT) {
-                message = "Illegal range--Enter an integer >=1 and < " + MAX_INPUT;
-                throw new NumberFormatException();
-            }
-            int[] primes = new int[max];
-            int primeCount = 1;
-            int test = 3;
-            StringBuffer output = new StringBuffer("The first " + max + " integers are:\n\n2\t");
-            while (primeCount < max) {
-                if (isPrime(test)) {
-                    primes[primeCount] = test;
-                    output.append(test);
-                    output.append("\t");
-                    primeCount++;
-                }
-                test += 2;
-            }
-
-            displayTextArea.setText(output.toString());
-        } catch (NumberFormatException numexp) {
-            // display error message
-            JOptionPane.showMessageDialog(null,
-                    message, "Illegal Input", JOptionPane.WARNING_MESSAGE);
-            listAllJTextField.requestFocus();
-            listAllJTextField.selectAll();
-        }
-    }
 
     // method to return integer for which radio button is selected
     private int getButton() {
@@ -544,8 +619,14 @@ public class PrimeNumbers extends JFrame {
             return 3;       // third radio button selected
         } else if (rangeJRadioButton.isSelected()) {
             return 4;       // fourth radio button selected
-        } else {
+        } else if (goldbachJRadioButton.isSelected()) {
             return 5;
+        } else if (palindromeJRadioButton.isSelected()) {
+            return 6;
+        } else if (emirpJRadioButton.isSelected()) {
+            return 7;
+        } else {
+            return 8;
         }
     }
     private void clearJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearJButtonActionPerformed
@@ -621,24 +702,39 @@ public class PrimeNumbers extends JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitForm
 
-    private void listAllJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listAllJRadioButtonActionPerformed
+    private void disableTextFields() {
+        listAllJTextField.setEditable(false);
+        isPrimeJTextField.setEditable(false);
+        factorizationJTextField.setEditable(false);
+        lowJTextField.setEditable(false);
+        highJTextField.setEditable(false);
+        goldbachJTextField.setEditable(false);
+        palindromeJTextField.setEditable(false);
+        emirpJTextField.setEditable(false);
+    }
 
+    private void listAllJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listAllJRadioButtonActionPerformed
         // Select the corresponding menu choice
+        disableTextFields();
         listPrimesJRadioButtonMenuItem.setSelected(true);
+        listAllJTextField.requestFocus();
     }//GEN-LAST:event_listAllJRadioButtonActionPerformed
 
     private void isPrimeJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isPrimeJRadioButtonActionPerformed
         // Select the corresponding menu choice
+        disableTextFields();
         testForPrimeJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_isPrimeJRadioButtonActionPerformed
 
     private void factorizationJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_factorizationJRadioButtonActionPerformed
         // Select the corresponding menu choice
+        disableTextFields();
         primeFactorizationJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_factorizationJRadioButtonActionPerformed
 
     private void rangeJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangeJRadioButtonActionPerformed
         // Select the corresponding menu choice
+        disableTextFields();
         rangeOfPrimesJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_rangeJRadioButtonActionPerformed
 
@@ -661,6 +757,57 @@ public class PrimeNumbers extends JFrame {
         // Select the corresponding radio button
         rangeJRadioButton.setSelected(true);
     }//GEN-LAST:event_rangeOfPrimesJRadioButtonMenuItemActionPerformed
+
+    private void goldbachJRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_goldbachJRadioButtonItemStateChanged
+
+    }//GEN-LAST:event_goldbachJRadioButtonItemStateChanged
+
+    private void goldbachJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goldbachJRadioButtonActionPerformed
+        disableTextFields();
+        goldbachJRadioButtonMenuItem.setSelected(true);
+    }//GEN-LAST:event_goldbachJRadioButtonActionPerformed
+
+    private void goldbachJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goldbachJTextFieldActionPerformed
+        calculateJButtonActionPerformed(evt);
+    }//GEN-LAST:event_goldbachJTextFieldActionPerformed
+
+    private void palindromeJRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_palindromeJRadioButtonItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_palindromeJRadioButtonItemStateChanged
+
+    private void palindromeJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_palindromeJRadioButtonActionPerformed
+        disableTextFields();
+        palindromeJRadioButtonMenuItem.setSelected(true);
+    }//GEN-LAST:event_palindromeJRadioButtonActionPerformed
+
+    private void palindromeJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_palindromeJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_palindromeJTextFieldActionPerformed
+
+    private void emirpJRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_emirpJRadioButtonItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emirpJRadioButtonItemStateChanged
+
+    private void emirpJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emirpJRadioButtonActionPerformed
+        disableTextFields();
+        emirpJRadioButtonMenuItem.setSelected(true);
+    }//GEN-LAST:event_emirpJRadioButtonActionPerformed
+
+    private void emirpJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emirpJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emirpJTextFieldActionPerformed
+
+    private void goldbachJRadioButtonMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goldbachJRadioButtonMenuItemActionPerformed
+        goldbachJRadioButton.setSelected(true);
+    }//GEN-LAST:event_goldbachJRadioButtonMenuItemActionPerformed
+
+    private void palindromeJRadioButtonMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_palindromeJRadioButtonMenuItemActionPerformed
+        palindromeJRadioButton.setSelected(true);
+    }//GEN-LAST:event_palindromeJRadioButtonMenuItemActionPerformed
+
+    private void emirpJRadioButtonMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emirpJRadioButtonMenuItemActionPerformed
+        emirpJRadioButton.setSelected(true);
+    }//GEN-LAST:event_emirpJRadioButtonMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -690,11 +837,17 @@ public class PrimeNumbers extends JFrame {
     private javax.swing.JPanel displayJPanel;
     private javax.swing.JScrollPane displayJScrollPanel;
     private javax.swing.JTextArea displayTextArea;
+    private javax.swing.JRadioButton emirpJRadioButton;
+    private javax.swing.JRadioButtonMenuItem emirpJRadioButtonMenuItem;
+    private javax.swing.JTextField emirpJTextField;
     private javax.swing.JMenuItem exitJMenuItem;
     private javax.swing.JRadioButton factorizationJRadioButton;
     private javax.swing.JTextField factorizationJTextField;
     private javax.swing.JMenu fileJMenu;
     private javax.swing.JLabel fromJLabel;
+    private javax.swing.JRadioButton goldbachJRadioButton;
+    private javax.swing.JRadioButtonMenuItem goldbachJRadioButtonMenuItem;
+    private javax.swing.JTextField goldbachJTextField;
     private javax.swing.JMenu helpJMenu;
     private javax.swing.JTextField highJTextField;
     private javax.swing.JRadioButton isPrimeJRadioButton;
@@ -704,6 +857,9 @@ public class PrimeNumbers extends JFrame {
     private javax.swing.JRadioButtonMenuItem listPrimesJRadioButtonMenuItem;
     private javax.swing.JTextField lowJTextField;
     private javax.swing.ButtonGroup menubuttonGroup;
+    private javax.swing.JRadioButton palindromeJRadioButton;
+    private javax.swing.JRadioButtonMenuItem palindromeJRadioButtonMenuItem;
+    private javax.swing.JTextField palindromeJTextField;
     private javax.swing.JRadioButtonMenuItem primeFactorizationJRadioButtonMenuItem;
     private javax.swing.JMenuBar primesJMenuBar;
     private javax.swing.JButton printJButton;

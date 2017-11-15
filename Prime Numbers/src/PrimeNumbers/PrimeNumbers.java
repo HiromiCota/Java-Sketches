@@ -1,9 +1,9 @@
+package PrimeNumbers;
 
-/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *	Class:		Primes
- *	File:		PrimeNumbers.java
- *	Description:	Displays prime numbers, tests for primeness, prime
- *                       decomposition, and range of primes.
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Class:	Primes File:	PrimeNumbers.java Description:	Displays prime numbers,
+ * tests for primeness, prime decomposition, and range of primes.
  *
  * @author:	Hiromi Cota Environment:	PC, Windows 10, jdk1.8.0_144, NetBeans 8.2
  * Date:	11/6/2017
@@ -11,6 +11,7 @@
  * @see javax.swing.JOptionPane
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
+import static PrimeNumbers.Calculations.*;
 import java.awt.print.PrinterException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +35,8 @@ public class PrimeNumbers extends JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/PI.jpg"));
         //center the form
         this.setLocationRelativeTo(null);
+        disableTextFields();
+        listAllJTextField.setEditable(true);
         listAllJTextField.requestFocus();
     }
 
@@ -110,6 +113,7 @@ public class PrimeNumbers extends JFrame {
         listAllJRadioButton.setBackground(new java.awt.Color(255, 204, 204));
         choicebuttonGroup.add(listAllJRadioButton);
         listAllJRadioButton.setFont(new java.awt.Font("MS Sans Serif", 0, 12)); // NOI18N
+        listAllJRadioButton.setSelected(true);
         listAllJRadioButton.setText("How many prime numbers?");
         listAllJRadioButton.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -259,7 +263,6 @@ public class PrimeNumbers extends JFrame {
         emirpJRadioButton.setBackground(new java.awt.Color(255, 204, 204));
         choicebuttonGroup.add(emirpJRadioButton);
         emirpJRadioButton.setFont(new java.awt.Font("MS Sans Serif", 0, 12)); // NOI18N
-        emirpJRadioButton.setSelected(true);
         emirpJRadioButton.setText("Emirps:");
         emirpJRadioButton.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -606,74 +609,6 @@ public class PrimeNumbers extends JFrame {
         }
     }//GEN-LAST:event_calculateJButtonActionPerformed
 
-    private Boolean isPrime(int testVal) {
-        boolean isPrime = true;
-        if (testVal > 3) //There's no need to test 1-3
-        {
-            for (int i = 2; i <= Math.sqrt(testVal) && isPrime == true; i++) {
-                int remain = testVal % i;
-                System.out.println(testVal + "%" + i + "=" + remain);
-                if (testVal % i == 0) {
-
-                    isPrime = false;
-                }
-            }
-        } else if (testVal <= 0) {
-            return !isPrime; //Negatives are not prime.
-        }
-        return isPrime;
-    }
-
-    private void outputIsPrime(Boolean isPrime, int number) {
-        displayTextArea.setText(number + " is ");
-        if (isPrime == false) {
-            displayTextArea.append("NOT ");
-        }
-        displayTextArea.append("prime!");
-    }
-
-    private void primeFactors() {
-
-    }
-
-    private void range() {
-
-    }
-
-    // listPrimes();
-    // display the first n prime numbers
-    private void listPrimes() {
-        String message = "Illegal type--inter an integer >= 1 and < "
-                + MAX_INPUT;
-        try {
-            int max = Integer.parseInt(listAllJTextField.getText());
-            if (max < 0 || max > MAX_INPUT) {
-                message = "Illegal range--Enter an integer >=1 and < " + MAX_INPUT;
-                throw new NumberFormatException();
-            }
-            int[] primes = new int[max];
-            int primeCount = 1;
-            int test = 3;
-            StringBuffer output = new StringBuffer("The first " + max + " integers are:\n\n2\t");
-            while (primeCount < max) {
-                if (isPrime(test)) {
-                    primes[primeCount] = test;
-                    output.append(test);
-                    output.append("\t");
-                    primeCount++;
-                }
-                test += 2;
-            }
-            displayTextArea.setText(output.toString());
-        } catch (NumberFormatException numexp) {
-            // display error message
-            JOptionPane.showMessageDialog(null,
-                    message, "Illegal Input", JOptionPane.WARNING_MESSAGE);
-            listAllJTextField.requestFocus();
-            listAllJTextField.selectAll();
-        }
-    }
-
     // method to return integer for which radio button is selected
     private int getButton() {
         if (listAllJRadioButton.isSelected()) {
@@ -767,24 +702,39 @@ public class PrimeNumbers extends JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitForm
 
-    private void listAllJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listAllJRadioButtonActionPerformed
+    private void disableTextFields() {
+        listAllJTextField.setEditable(false);
+        isPrimeJTextField.setEditable(false);
+        factorizationJTextField.setEditable(false);
+        lowJTextField.setEditable(false);
+        highJTextField.setEditable(false);
+        goldbachJTextField.setEditable(false);
+        palindromeJTextField.setEditable(false);
+        emirpJTextField.setEditable(false);
+    }
 
+    private void listAllJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listAllJRadioButtonActionPerformed
         // Select the corresponding menu choice
+        disableTextFields();
         listPrimesJRadioButtonMenuItem.setSelected(true);
+        listAllJTextField.requestFocus();
     }//GEN-LAST:event_listAllJRadioButtonActionPerformed
 
     private void isPrimeJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isPrimeJRadioButtonActionPerformed
         // Select the corresponding menu choice
+        disableTextFields();
         testForPrimeJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_isPrimeJRadioButtonActionPerformed
 
     private void factorizationJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_factorizationJRadioButtonActionPerformed
         // Select the corresponding menu choice
+        disableTextFields();
         primeFactorizationJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_factorizationJRadioButtonActionPerformed
 
     private void rangeJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangeJRadioButtonActionPerformed
         // Select the corresponding menu choice
+        disableTextFields();
         rangeOfPrimesJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_rangeJRadioButtonActionPerformed
 
@@ -813,11 +763,12 @@ public class PrimeNumbers extends JFrame {
     }//GEN-LAST:event_goldbachJRadioButtonItemStateChanged
 
     private void goldbachJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goldbachJRadioButtonActionPerformed
+        disableTextFields();
         goldbachJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_goldbachJRadioButtonActionPerformed
 
     private void goldbachJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goldbachJTextFieldActionPerformed
-        // TODO add your handling code here:
+        calculateJButtonActionPerformed(evt);
     }//GEN-LAST:event_goldbachJTextFieldActionPerformed
 
     private void palindromeJRadioButtonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_palindromeJRadioButtonItemStateChanged
@@ -825,6 +776,7 @@ public class PrimeNumbers extends JFrame {
     }//GEN-LAST:event_palindromeJRadioButtonItemStateChanged
 
     private void palindromeJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_palindromeJRadioButtonActionPerformed
+        disableTextFields();
         palindromeJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_palindromeJRadioButtonActionPerformed
 
@@ -837,6 +789,7 @@ public class PrimeNumbers extends JFrame {
     }//GEN-LAST:event_emirpJRadioButtonItemStateChanged
 
     private void emirpJRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emirpJRadioButtonActionPerformed
+        disableTextFields();
         emirpJRadioButtonMenuItem.setSelected(true);
     }//GEN-LAST:event_emirpJRadioButtonActionPerformed
 
@@ -916,17 +869,5 @@ public class PrimeNumbers extends JFrame {
     private javax.swing.JRadioButtonMenuItem testForPrimeJRadioButtonMenuItem;
     private javax.swing.JLabel toJLabel;
     // End of variables declaration//GEN-END:variables
-
-    private void goldbach() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void palindrome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private void emirp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

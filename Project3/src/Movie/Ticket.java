@@ -15,6 +15,11 @@ public class Ticket {
     ShowTime thisTime;
     Price thisPrice;
 
+    Ticket(Price price, ShowTime showTime) {
+        thisTime = showTime;
+        thisPrice = price;
+    }
+
     public double getPrice() {
         switch (thisPrice) {
             case FULLPRICE:

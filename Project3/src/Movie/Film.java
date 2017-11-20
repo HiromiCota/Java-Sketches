@@ -13,4 +13,12 @@ public class Film {
     int MinutesLong;
     String Title;
     Rating MPAARating;
+
+    Film(int film, int length, String title, Rating rating) {
+        FilmID = film;
+        MinutesLong = length;
+        Title = title;
+        MPAARating = rating;
+    }
+
 }

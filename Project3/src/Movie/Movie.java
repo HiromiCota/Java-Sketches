@@ -2,7 +2,7 @@ package Movie;
 
 /**
  *
- * @author 980453413
+ * @author Hiromi Cota
  */
 public class Movie {
 

@@ -11,7 +11,7 @@ public class Cart {
     ArrayList<Ticket> TicketsInCart;
     ArrayList Quantity;
     double total;
-    final double TAX_RATE 0.089;
+    final double TAX_RATE = 0.089;
 
     public void addShowTime(Ticket ticket, int quantity) {
         int index = TicketsInCart.indexOf(ticket);

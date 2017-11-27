@@ -1,14 +1,22 @@
 package Movie;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  * File: Parse.java Contains methods to parse XML files If files are unreadable,
@@ -43,18 +51,36 @@ public class Parse {
         return output;
     }
 
-    public Boolean writeTransaction(Cart cart, Document doc) throws ParserConfigurationException {
+    public Boolean writeTransaction(Cart cart, File file)
+            throws ParserConfigurationException, TransformerConfigurationException, TransformerException, SAXException, IOException {
+        if (!file.canWrite()) {
+            return false;
+        }
+        Document doc;
+        if (!file.exists()) {
+            doc = buildRootNode(cart, 0);
+        } else {
+            doc = parseXML(file);
+        }
+
         int validation = validateDoc(doc);
         switch (validation) {
             case -1:
                 return false;
             case 0:
-                buildRootNode(cart, validation); //This
+                doc = buildRootNode(cart, validation); //Overwriting. Hope it's blank.
                 break;
             default:
                 appendTransaction(cart, doc, validation);
                 break;
         }
+        //Let's hit the disk and write
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(file);
+        transformer.transform(source, result);
+
         return true;
     }
 
@@ -103,6 +129,12 @@ public class Parse {
 
     public Boolean validateTransactions(Cart cart) {
         return !cart.isEmpty();
+    }
+
+    public Document parseXML(File file) throws ParserConfigurationException, SAXException, IOException {
+        DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
+        return documentBuilder.parse(file);
     }
 
     public Document buildRootNode(Cart cart, int startIndex) throws ParserConfigurationException {

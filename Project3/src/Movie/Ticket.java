@@ -20,6 +20,14 @@ public class Ticket {
         thisPrice = price;
     }
 
+    public ShowTime getTime() {
+        return thisTime;
+    }
+
+    public String getDiscount() {
+        return thisPrice.toString();
+    }
+
     public double getPrice() {
         switch (thisPrice) {
             case FULLPRICE:

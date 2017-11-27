@@ -47,6 +47,10 @@ public class Cart {
         }
     }
 
+    public int getQuantity(int index) {
+        return (int) Quantity.get(index);
+    }
+
     public int removeTicket(Ticket ticket) {
         return removeTicket(ticket, 1);
     }
@@ -69,4 +73,15 @@ public class Cart {
         return total;
     }
 
+    public Boolean isEmpty() {
+        return TicketsInCart.isEmpty();
+    }
+
+    public Ticket get(int index) {
+        return TicketsInCart.get(index);
+    }
+
+    public int size() {
+        return TicketsInCart.size();
+    }
 }

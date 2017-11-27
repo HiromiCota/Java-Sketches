@@ -1,20 +1,24 @@
 package Movie;
 
+import java.sql.Time;
+
 /**
+ * File: ShowTime.java This is a wrapper class.
  *
  * @author Hiromi Cota
  */
 public class ShowTime {
 
     int ShowTimeID;
-    int Hour;
-    int Minutes;
-    int Film;
+    Time ShowTimeTime;
+    int FilmID;
+    int TicketsRemaining;
 
     ShowTime(int ID, int hour, int minutes, int film) {
         ShowTimeID = ID;
-        Hour = hour;
-        Minutes = minutes;
-        Film = film;
+        ShowTimeTime = new Time(hour, minutes, 0);
+        FilmID = film;
+        TicketsRemaining = 100;
     }
+
 }

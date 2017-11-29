@@ -55,40 +55,40 @@ public class MovieGUI extends javax.swing.JFrame {
         payRewardjButton = new javax.swing.JButton();
         clearAlljButton = new javax.swing.JButton();
         filmjPanel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jSpinner4 = new javax.swing.JSpinner();
-        jLabel7 = new javax.swing.JLabel();
-        jSpinner5 = new javax.swing.JSpinner();
-        jLabel9 = new javax.swing.JLabel();
-        showFilmIDjTextField1 = new javax.swing.JTextField();
-        showFilmIDjTextField2 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        filmjScrollPane = new javax.swing.JScrollPane();
+        filmjList = new javax.swing.JList<>();
+        addFilmjButton = new javax.swing.JButton();
+        editFilmjButton = new javax.swing.JButton();
+        deleteFilmjButton = new javax.swing.JButton();
+        saveFilmjButton = new javax.swing.JButton();
+        loadFilmjButton = new javax.swing.JButton();
+        editFilmjPanel = new javax.swing.JPanel();
+        runTimejLabel = new javax.swing.JLabel();
+        runTimejSpinner = new javax.swing.JSpinner();
+        ratingjLabel = new javax.swing.JLabel();
+        ratingjSpinner = new javax.swing.JSpinner();
+        filmIDjLabel = new javax.swing.JLabel();
+        FilmIDjTextField = new javax.swing.JTextField();
+        titlejTextField = new javax.swing.JTextField();
+        titlejLabel = new javax.swing.JLabel();
         showTimejPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel8 = new javax.swing.JLabel();
+        showTitlejLabel = new javax.swing.JLabel();
+        showTitlejComboBox = new javax.swing.JComboBox<>();
+        showEditjPanel = new javax.swing.JPanel();
+        ticketsjLabel = new javax.swing.JLabel();
+        ticketsjSpinner = new javax.swing.JSpinner();
+        timejLabel = new javax.swing.JLabel();
+        hourjSpinner = new javax.swing.JSpinner();
+        minutesjSpinner = new javax.swing.JSpinner();
+        showIDjLabel = new javax.swing.JLabel();
         showFilmIDjTextField = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        showTimejScrollPane = new javax.swing.JScrollPane();
+        showTimejList = new javax.swing.JList<>();
+        addShowTimejButton = new javax.swing.JButton();
+        editShowTimejButton = new javax.swing.JButton();
+        saveShowTimejButton = new javax.swing.JButton();
+        deleteShowTimejButton = new javax.swing.JButton();
+        loadShowTimejButton = new javax.swing.JButton();
         transjPanel = new javax.swing.JPanel();
         transjScrollPane = new javax.swing.JScrollPane();
         transOutputjTextArea = new javax.swing.JTextArea();
@@ -297,100 +297,100 @@ public class MovieGUI extends javax.swing.JFrame {
 
         containerjTabbedPane.addTab("Sell Tickets", ticketjPanel);
 
-        jList2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jList2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        filmjList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        filmjList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        filmjList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        filmjScrollPane.setViewportView(filmjList);
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton6.setText("Add New Film");
+        addFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addFilmjButton.setText("Add New Film");
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton7.setText("Edit Film");
+        editFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        editFilmjButton.setText("Edit Film");
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton8.setText("Delete Film");
+        deleteFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        deleteFilmjButton.setText("Delete Film");
 
-        jButton9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton9.setText("Save Schedule");
+        saveFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        saveFilmjButton.setText("Save Schedule");
 
-        jButton10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton10.setText("Load Schedule");
+        loadFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        loadFilmjButton.setText("Load Schedule");
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        editFilmjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Run time:");
+        runTimejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        runTimejLabel.setText("Run time:");
 
-        jSpinner4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        runTimejSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("MPAA Rating:");
+        ratingjLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ratingjLabel.setText("MPAA Rating:");
 
-        jSpinner5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ratingjSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Film ID:");
+        filmIDjLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        filmIDjLabel.setText("Film ID:");
 
-        showFilmIDjTextField1.setEditable(false);
-        showFilmIDjTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        showFilmIDjTextField1.setEnabled(false);
+        FilmIDjTextField.setEditable(false);
+        FilmIDjTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        FilmIDjTextField.setEnabled(false);
 
-        showFilmIDjTextField2.setEditable(false);
-        showFilmIDjTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        showFilmIDjTextField2.setEnabled(false);
+        titlejTextField.setEditable(false);
+        titlejTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        titlejTextField.setEnabled(false);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setText("Title:");
+        titlejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        titlejLabel.setText("Title:");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout editFilmjPanelLayout = new javax.swing.GroupLayout(editFilmjPanel);
+        editFilmjPanel.setLayout(editFilmjPanelLayout);
+        editFilmjPanelLayout.setHorizontalGroup(
+            editFilmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editFilmjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
+                .addGroup(editFilmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editFilmjPanelLayout.createSequentialGroup()
+                        .addComponent(filmIDjLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(showFilmIDjTextField1))
-                    .addComponent(showFilmIDjTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(FilmIDjTextField))
+                    .addComponent(titlejTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(editFilmjPanelLayout.createSequentialGroup()
+                        .addComponent(ratingjLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
+                        .addComponent(ratingjSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(editFilmjPanelLayout.createSequentialGroup()
+                        .addComponent(titlejLabel)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                    .addGroup(editFilmjPanelLayout.createSequentialGroup()
+                        .addComponent(runTimejLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(runTimejSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        editFilmjPanelLayout.setVerticalGroup(
+            editFilmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editFilmjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(showFilmIDjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(editFilmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(filmIDjLabel)
+                    .addComponent(FilmIDjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel10)
+                .addComponent(titlejLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(showFilmIDjTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titlejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(editFilmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ratingjLabel)
+                    .addComponent(ratingjSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(editFilmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(runTimejLabel)
+                    .addComponent(runTimejSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -400,16 +400,16 @@ public class MovieGUI extends javax.swing.JFrame {
             filmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(filmjPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(filmjScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(filmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(saveFilmjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(loadFilmjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteFilmjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addFilmjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editFilmjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editFilmjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         filmjPanelLayout.setVerticalGroup(
@@ -418,118 +418,118 @@ public class MovieGUI extends javax.swing.JFrame {
                 .addGap(126, 126, 126)
                 .addGroup(filmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(filmjPanelLayout.createSequentialGroup()
-                        .addComponent(jButton6)
+                        .addComponent(addFilmjButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7)
+                        .addComponent(editFilmjButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton8)
+                        .addComponent(deleteFilmjButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton9)
+                        .addComponent(saveFilmjButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton10))
-                    .addComponent(jScrollPane2)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 207, Short.MAX_VALUE))
+                        .addComponent(loadFilmjButton))
+                    .addComponent(filmjScrollPane)
+                    .addComponent(editFilmjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, Short.MAX_VALUE))
                 .addGap(82, 82, 82))
         );
 
         containerjTabbedPane.addTab("Edit Films", filmjPanel);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Editing Showtimes for:");
+        showTitlejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        showTitlejLabel.setText("Editing Showtimes for:");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        showTitlejComboBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        showTitlejComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        showEditjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Available Tickets:");
+        ticketsjLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ticketsjLabel.setText("Available Tickets:");
 
-        jSpinner3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ticketsjSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Showing at: ");
+        timejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        timejLabel.setText("Showing at: ");
 
-        jSpinner2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        hourjSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        minutesjSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Film ID:");
+        showIDjLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        showIDjLabel.setText("Film ID:");
 
         showFilmIDjTextField.setEditable(false);
         showFilmIDjTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         showFilmIDjTextField.setEnabled(false);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout showEditjPanelLayout = new javax.swing.GroupLayout(showEditjPanel);
+        showEditjPanel.setLayout(showEditjPanelLayout);
+        showEditjPanelLayout.setHorizontalGroup(
+            showEditjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showEditjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                .addGroup(showEditjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(showEditjPanelLayout.createSequentialGroup()
+                        .addComponent(showIDjLabel)
                         .addGap(18, 18, 18)
                         .addComponent(showFilmIDjTextField))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                    .addGroup(showEditjPanelLayout.createSequentialGroup()
+                        .addGroup(showEditjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(showEditjPanelLayout.createSequentialGroup()
+                                .addComponent(timejLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(hourjSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addComponent(minutesjSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(showEditjPanelLayout.createSequentialGroup()
+                                .addComponent(ticketsjLabel)
                                 .addGap(23, 23, 23)
-                                .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(ticketsjSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        showEditjPanelLayout.setVerticalGroup(
+            showEditjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showEditjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                .addGroup(showEditjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(showIDjLabel)
                     .addComponent(showFilmIDjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(showEditjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(timejLabel)
+                    .addGroup(showEditjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(minutesjSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hourjSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(showEditjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ticketsjLabel)
+                    .addComponent(ticketsjSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jList1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        showTimejList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        showTimejList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        showTimejList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        showTimejScrollPane.setViewportView(showTimejList);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Add New Showtime");
+        addShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addShowTimejButton.setText("Add New Showtime");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Edit Showtime");
+        editShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        editShowTimejButton.setText("Edit Showtime");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Save Schedule");
+        saveShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        saveShowTimejButton.setText("Save Schedule");
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setText("Delete Showtime");
+        deleteShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        deleteShowTimejButton.setText("Delete Showtime");
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton5.setText("Load Schedule");
+        loadShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        loadShowTimejButton.setText("Load Schedule");
 
         javax.swing.GroupLayout showTimejPanelLayout = new javax.swing.GroupLayout(showTimejPanel);
         showTimejPanel.setLayout(showTimejPanelLayout);
@@ -539,30 +539,30 @@ public class MovieGUI extends javax.swing.JFrame {
                 .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showTimejPanelLayout.createSequentialGroup()
                         .addGap(126, 126, 126)
-                        .addComponent(jLabel1)
+                        .addComponent(showTitlejLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(showTitlejComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(showTimejPanelLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(showTimejScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(showTimejPanelLayout.createSequentialGroup()
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deleteShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(showTimejPanelLayout.createSequentialGroup()
                                 .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showTimejPanelLayout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(editShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(10, 10, 10))
                                     .addGroup(showTimejPanelLayout.createSequentialGroup()
                                         .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton1)
-                                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(addShowTimejButton)
+                                            .addComponent(loadShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(saveShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(showEditjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         showTimejPanelLayout.setVerticalGroup(
@@ -570,22 +570,22 @@ public class MovieGUI extends javax.swing.JFrame {
             .addGroup(showTimejPanelLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(showTitlejComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(showTitlejLabel))
                 .addGap(41, 41, 41)
                 .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showTimejPanelLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(addShowTimejButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
+                        .addComponent(editShowTimejButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
+                        .addComponent(deleteShowTimejButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                        .addComponent(jButton3)
+                        .addComponent(saveShowTimejButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5))
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(loadShowTimejButton))
+                    .addComponent(showTimejScrollPane)
+                    .addComponent(showEditjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(138, 138, 138))
         );
 
@@ -761,11 +761,14 @@ public class MovieGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField FilmIDjTextField;
     private javax.swing.JMenuItem aboutjMenuItem;
     private javax.swing.JButton addChildjButton;
+    private javax.swing.JButton addFilmjButton;
     private javax.swing.JLabel addPaneljLabel;
     private javax.swing.JButton addRegularjButton;
     private javax.swing.JButton addSeniorjButton;
+    private javax.swing.JButton addShowTimejButton;
     private javax.swing.JLabel addSpacerjLabel;
     private javax.swing.JPanel addTicketjPanel;
     private javax.swing.JLabel cartjLabel;
@@ -776,49 +779,31 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JPanel checkOutjPanel;
     private javax.swing.JButton clearAlljButton;
     private javax.swing.JTabbedPane containerjTabbedPane;
+    private javax.swing.JButton deleteFilmjButton;
+    private javax.swing.JButton deleteShowTimejButton;
     private javax.swing.JLabel duejLabel;
     private javax.swing.JTextField duejTextField;
+    private javax.swing.JButton editFilmjButton;
+    private javax.swing.JPanel editFilmjPanel;
+    private javax.swing.JButton editShowTimejButton;
     private javax.swing.JMenu editjMenu;
     private javax.swing.JMenu filejMenu;
+    private javax.swing.JLabel filmIDjLabel;
+    private javax.swing.JList<String> filmjList;
     private javax.swing.JPanel filmjPanel;
+    private javax.swing.JScrollPane filmjScrollPane;
     private javax.swing.JPopupMenu.Separator filmjSeparator;
     private javax.swing.JButton firstTransjButton;
     private javax.swing.JMenu helpjMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JSpinner hourjSpinner;
     private javax.swing.JMenuBar jMenuBar;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JSpinner jSpinner5;
     private javax.swing.JButton lastTransjButton;
+    private javax.swing.JButton loadFilmjButton;
     private javax.swing.JMenuItem loadFilmjMenuItem;
+    private javax.swing.JButton loadShowTimejButton;
     private javax.swing.JMenuItem loadShowTimejMenuItem;
     private javax.swing.JMenuItem loadTransactionjMenuItem;
+    private javax.swing.JSpinner minutesjSpinner;
     private javax.swing.JButton nextTransjButton;
     private javax.swing.JButton payCashjButton;
     private javax.swing.JButton payCheckjButton;
@@ -826,26 +811,41 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JButton payRewardjButton;
     private javax.swing.JButton prevTransjButton;
     private javax.swing.JMenuItem quitjMenuItem;
+    private javax.swing.JLabel ratingjLabel;
+    private javax.swing.JSpinner ratingjSpinner;
     private javax.swing.JButton removeAlljButton;
     private javax.swing.JButton removeChildjButton;
     private javax.swing.JLabel removePaneljLabel;
     private javax.swing.JButton removeRegularjButton;
     private javax.swing.JButton removeSeniorjButton;
     private javax.swing.JPanel removeTicketjPanel;
+    private javax.swing.JLabel runTimejLabel;
+    private javax.swing.JSpinner runTimejSpinner;
+    private javax.swing.JButton saveFilmjButton;
     private javax.swing.JMenuItem saveFilmjMenuItem;
+    private javax.swing.JButton saveShowTimejButton;
     private javax.swing.JMenuItem saveShowTimejMenuItem;
     private javax.swing.JMenuItem saveTransactionjMenuItem;
+    private javax.swing.JPanel showEditjPanel;
     private javax.swing.JTextField showFilmIDjTextField;
-    private javax.swing.JTextField showFilmIDjTextField1;
-    private javax.swing.JTextField showFilmIDjTextField2;
+    private javax.swing.JLabel showIDjLabel;
+    private javax.swing.JList<String> showTimejList;
     private javax.swing.JPanel showTimejPanel;
+    private javax.swing.JScrollPane showTimejScrollPane;
     private javax.swing.JPopupMenu.Separator showTimejSeparator;
+    private javax.swing.JComboBox<String> showTitlejComboBox;
+    private javax.swing.JLabel showTitlejLabel;
     private javax.swing.JLabel tenderedjLabel;
     private javax.swing.JTextField tenderedjTextField;
     private javax.swing.JLabel ticketShowTimejLabel;
     private javax.swing.JList<String> ticketShowTimejList;
     private javax.swing.JScrollPane ticketShowTimejScrollPane;
     private javax.swing.JPanel ticketjPanel;
+    private javax.swing.JLabel ticketsjLabel;
+    private javax.swing.JSpinner ticketsjSpinner;
+    private javax.swing.JLabel timejLabel;
+    private javax.swing.JLabel titlejLabel;
+    private javax.swing.JTextField titlejTextField;
     private javax.swing.JTextArea transOutputjTextArea;
     private javax.swing.JLabel transTextjLabel;
     private javax.swing.JPopupMenu.Separator transactionjSeparator;

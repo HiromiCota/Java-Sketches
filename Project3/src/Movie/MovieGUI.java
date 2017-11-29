@@ -30,26 +30,30 @@ public class MovieGUI extends javax.swing.JFrame {
         cartjScrollPane = new javax.swing.JScrollPane();
         cartjTextArea = new javax.swing.JTextArea();
         cartjLabel = new javax.swing.JLabel();
+        duejTextField = new javax.swing.JTextField();
+        tenderedjTextField = new javax.swing.JTextField();
+        duejLabel = new javax.swing.JLabel();
+        tenderedjLabel = new javax.swing.JLabel();
+        addTicketjPanel = new javax.swing.JPanel();
+        addPaneljLabel = new javax.swing.JLabel();
+        addRegularjButton = new javax.swing.JButton();
+        addSeniorjButton = new javax.swing.JButton();
+        addChildjButton = new javax.swing.JButton();
+        addSpacerjLabel = new javax.swing.JLabel();
+        removeTicketjPanel = new javax.swing.JPanel();
+        removePaneljLabel = new javax.swing.JLabel();
+        removeRegularjButton = new javax.swing.JButton();
+        removeSeniorjButton = new javax.swing.JButton();
+        removeChildjButton = new javax.swing.JButton();
+        removeAlljButton = new javax.swing.JButton();
+        changejLabel = new javax.swing.JLabel();
+        changejTextField = new javax.swing.JTextField();
+        checkOutjPanel = new javax.swing.JPanel();
         payCashjButton = new javax.swing.JButton();
         payCreditjButton = new javax.swing.JButton();
         payCheckjButton = new javax.swing.JButton();
         payRewardjButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        addTicketjPanel = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        removeTicketjPanel = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        clearAlljButton = new javax.swing.JButton();
         filmjPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
@@ -94,7 +98,7 @@ public class MovieGUI extends javax.swing.JFrame {
         lastTransjButton = new javax.swing.JButton();
         firstTransjButton = new javax.swing.JButton();
         transTextjLabel = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar = new javax.swing.JMenuBar();
         filejMenu = new javax.swing.JMenu();
         loadFilmjMenuItem = new javax.swing.JMenuItem();
         saveFilmjMenuItem = new javax.swing.JMenuItem();
@@ -106,7 +110,9 @@ public class MovieGUI extends javax.swing.JFrame {
         saveTransactionjMenuItem = new javax.swing.JMenuItem();
         transactionjSeparator = new javax.swing.JPopupMenu.Separator();
         quitjMenuItem = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        editjMenu = new javax.swing.JMenu();
+        helpjMenu = new javax.swing.JMenu();
+        aboutjMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,75 +138,87 @@ public class MovieGUI extends javax.swing.JFrame {
         cartjLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cartjLabel.setText("Cart:");
 
+        duejTextField.setEditable(false);
+        duejTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        duejTextField.setEnabled(false);
+
+        tenderedjTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        duejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        duejLabel.setText("Due:");
+
+        tenderedjLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tenderedjLabel.setText("Tendered:");
+
+        addTicketjPanel.setLayout(new java.awt.GridLayout(1, 5));
+
+        addPaneljLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addPaneljLabel.setText("Add:");
+        addTicketjPanel.add(addPaneljLabel);
+
+        addRegularjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addRegularjButton.setText("Regular");
+        addTicketjPanel.add(addRegularjButton);
+
+        addSeniorjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addSeniorjButton.setText("Senior");
+        addTicketjPanel.add(addSeniorjButton);
+
+        addChildjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addChildjButton.setText("Child");
+        addTicketjPanel.add(addChildjButton);
+        addTicketjPanel.add(addSpacerjLabel);
+
+        removeTicketjPanel.setLayout(new java.awt.GridLayout(1, 5));
+
+        removePaneljLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        removePaneljLabel.setText("Remove:");
+        removeTicketjPanel.add(removePaneljLabel);
+
+        removeRegularjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        removeRegularjButton.setText("Regular");
+        removeTicketjPanel.add(removeRegularjButton);
+
+        removeSeniorjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        removeSeniorjButton.setText("Senior");
+        removeTicketjPanel.add(removeSeniorjButton);
+
+        removeChildjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        removeChildjButton.setText("Child");
+        removeTicketjPanel.add(removeChildjButton);
+
+        removeAlljButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        removeAlljButton.setText("ALL");
+        removeTicketjPanel.add(removeAlljButton);
+
+        changejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        changejLabel.setText("Change:");
+
+        changejTextField.setEditable(false);
+        changejTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        changejTextField.setEnabled(false);
+
+        checkOutjPanel.setLayout(new java.awt.GridLayout());
+
         payCashjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         payCashjButton.setText("Cash");
+        checkOutjPanel.add(payCashjButton);
 
         payCreditjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         payCreditjButton.setText("Credit");
+        checkOutjPanel.add(payCreditjButton);
 
         payCheckjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         payCheckjButton.setText("Check");
+        checkOutjPanel.add(payCheckjButton);
 
         payRewardjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        payRewardjButton.setText("Reward Points");
+        payRewardjButton.setText("Rewards");
+        checkOutjPanel.add(payRewardjButton);
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setText("jTextField1");
-        jTextField1.setEnabled(false);
-
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField2.setText("jTextField1");
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("Due:");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText("Paid:");
-
-        addTicketjPanel.setLayout(new java.awt.GridLayout(1, 4));
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel14.setText("Add:");
-        addTicketjPanel.add(jLabel14);
-
-        jButton11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton11.setText("Regular");
-        addTicketjPanel.add(jButton11);
-
-        jButton12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton12.setText("Senior");
-        addTicketjPanel.add(jButton12);
-
-        jButton13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton13.setText("Child");
-        addTicketjPanel.add(jButton13);
-
-        removeTicketjPanel.setLayout(new java.awt.GridLayout());
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel13.setText("Remove:");
-        removeTicketjPanel.add(jLabel13);
-
-        jButton18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton18.setText("Regular");
-        removeTicketjPanel.add(jButton18);
-
-        jButton19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton19.setText("Senior");
-        removeTicketjPanel.add(jButton19);
-
-        jButton20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton20.setText("Child");
-        removeTicketjPanel.add(jButton20);
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel15.setText("Change:");
-
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField3.setText("jTextField1");
-        jTextField3.setEnabled(false);
+        clearAlljButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        clearAlljButton.setText("Clear All");
+        checkOutjPanel.add(clearAlljButton);
 
         javax.swing.GroupLayout ticketjPanelLayout = new javax.swing.GroupLayout(ticketjPanel);
         ticketjPanel.setLayout(ticketjPanelLayout);
@@ -217,36 +235,32 @@ public class MovieGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ticketjPanelLayout.createSequentialGroup()
-                                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ticketjPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ticketjPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ticketjPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(addTicketjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(removeTicketjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cartjScrollPane, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(cartjLabel))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(ticketjPanelLayout.createSequentialGroup()
-                                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(addTicketjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(removeTicketjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cartjScrollPane, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ticketjPanelLayout.createSequentialGroup()
-                                            .addComponent(payCashjButton)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(payCreditjButton)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(payCheckjButton)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(payRewardjButton))
-                                        .addComponent(cartjLabel, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addGap(0, 79, Short.MAX_VALUE))))))
+                                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(ticketjPanelLayout.createSequentialGroup()
+                                            .addComponent(changejLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(changejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(ticketjPanelLayout.createSequentialGroup()
+                                            .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(tenderedjLabel)
+                                                .addComponent(duejLabel))
+                                            .addGap(40, 40, 40)
+                                            .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(ticketjPanelLayout.createSequentialGroup()
+                                                    .addGap(0, 0, Short.MAX_VALUE)
+                                                    .addComponent(duejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(tenderedjTextField))))
+                                    .addComponent(checkOutjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         ticketjPanelLayout.setVerticalGroup(
             ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,25 +277,21 @@ public class MovieGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cartjLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cartjScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cartjScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                            .addComponent(duejLabel)
+                            .addComponent(duejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(payCashjButton)
-                            .addComponent(payCreditjButton)
-                            .addComponent(payCheckjButton)
-                            .addComponent(payRewardjButton))))
+                            .addComponent(tenderedjLabel)
+                            .addComponent(tenderedjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(changejLabel)
+                            .addComponent(changejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(checkOutjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -418,7 +428,7 @@ public class MovieGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton10))
                     .addComponent(jScrollPane2)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 206, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 207, Short.MAX_VALUE))
                 .addGap(82, 82, 82))
         );
 
@@ -570,7 +580,7 @@ public class MovieGUI extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5))
@@ -629,7 +639,7 @@ public class MovieGUI extends javax.swing.JFrame {
                     .addComponent(firstTransjButton)
                     .addComponent(transTextjLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(transjScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                .addComponent(transjScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -672,13 +682,20 @@ public class MovieGUI extends javax.swing.JFrame {
         });
         filejMenu.add(quitjMenuItem);
 
-        jMenuBar1.add(filejMenu);
+        jMenuBar.add(filejMenu);
 
-        jMenu2.setText("Edit");
-        jMenu2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jMenuBar1.add(jMenu2);
+        editjMenu.setText("Edit");
+        editjMenu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuBar.add(editjMenu);
 
-        setJMenuBar(jMenuBar1);
+        helpjMenu.setText("Help");
+
+        aboutjMenuItem.setText("About");
+        helpjMenu.add(aboutjMenuItem);
+
+        jMenuBar.add(helpjMenu);
+
+        setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -693,7 +710,7 @@ public class MovieGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(containerjTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                .addComponent(containerjTabbedPane)
                 .addContainerGap())
         );
 
@@ -744,24 +761,32 @@ public class MovieGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem aboutjMenuItem;
+    private javax.swing.JButton addChildjButton;
+    private javax.swing.JLabel addPaneljLabel;
+    private javax.swing.JButton addRegularjButton;
+    private javax.swing.JButton addSeniorjButton;
+    private javax.swing.JLabel addSpacerjLabel;
     private javax.swing.JPanel addTicketjPanel;
     private javax.swing.JLabel cartjLabel;
     private javax.swing.JScrollPane cartjScrollPane;
     private javax.swing.JTextArea cartjTextArea;
+    private javax.swing.JLabel changejLabel;
+    private javax.swing.JTextField changejTextField;
+    private javax.swing.JPanel checkOutjPanel;
+    private javax.swing.JButton clearAlljButton;
     private javax.swing.JTabbedPane containerjTabbedPane;
+    private javax.swing.JLabel duejLabel;
+    private javax.swing.JTextField duejTextField;
+    private javax.swing.JMenu editjMenu;
     private javax.swing.JMenu filejMenu;
     private javax.swing.JPanel filmjPanel;
     private javax.swing.JPopupMenu.Separator filmjSeparator;
     private javax.swing.JButton firstTransjButton;
+    private javax.swing.JMenu helpjMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -772,11 +797,6 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -785,8 +805,7 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
@@ -796,9 +815,6 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JSpinner jSpinner4;
     private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton lastTransjButton;
     private javax.swing.JMenuItem loadFilmjMenuItem;
     private javax.swing.JMenuItem loadShowTimejMenuItem;
@@ -810,6 +826,11 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JButton payRewardjButton;
     private javax.swing.JButton prevTransjButton;
     private javax.swing.JMenuItem quitjMenuItem;
+    private javax.swing.JButton removeAlljButton;
+    private javax.swing.JButton removeChildjButton;
+    private javax.swing.JLabel removePaneljLabel;
+    private javax.swing.JButton removeRegularjButton;
+    private javax.swing.JButton removeSeniorjButton;
     private javax.swing.JPanel removeTicketjPanel;
     private javax.swing.JMenuItem saveFilmjMenuItem;
     private javax.swing.JMenuItem saveShowTimejMenuItem;
@@ -819,6 +840,8 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JTextField showFilmIDjTextField2;
     private javax.swing.JPanel showTimejPanel;
     private javax.swing.JPopupMenu.Separator showTimejSeparator;
+    private javax.swing.JLabel tenderedjLabel;
+    private javax.swing.JTextField tenderedjTextField;
     private javax.swing.JLabel ticketShowTimejLabel;
     private javax.swing.JList<String> ticketShowTimejList;
     private javax.swing.JScrollPane ticketShowTimejScrollPane;

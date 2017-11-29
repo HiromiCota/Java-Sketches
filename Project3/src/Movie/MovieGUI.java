@@ -22,21 +22,691 @@ public class MovieGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        containerjTabbedPane = new javax.swing.JTabbedPane();
+        ticketjPanel = new javax.swing.JPanel();
+        ticketShowTimejScrollPane = new javax.swing.JScrollPane();
+        ticketShowTimejList = new javax.swing.JList<>();
+        ticketShowTimejLabel = new javax.swing.JLabel();
+        cartjScrollPane = new javax.swing.JScrollPane();
+        cartjTextArea = new javax.swing.JTextArea();
+        cartjLabel = new javax.swing.JLabel();
+        payCashjButton = new javax.swing.JButton();
+        payCreditjButton = new javax.swing.JButton();
+        payCheckjButton = new javax.swing.JButton();
+        payRewardjButton = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        addTicketjPanel = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        removeTicketjPanel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        filmjPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jSpinner4 = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
+        jSpinner5 = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        showFilmIDjTextField1 = new javax.swing.JTextField();
+        showFilmIDjTextField2 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        showTimejPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jSpinner3 = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        jSpinner2 = new javax.swing.JSpinner();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel8 = new javax.swing.JLabel();
+        showFilmIDjTextField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        transjPanel = new javax.swing.JPanel();
+        transjScrollPane = new javax.swing.JScrollPane();
+        transOutputjTextArea = new javax.swing.JTextArea();
+        nextTransjButton = new javax.swing.JButton();
+        prevTransjButton = new javax.swing.JButton();
+        transjTextField = new javax.swing.JTextField();
+        lastTransjButton = new javax.swing.JButton();
+        firstTransjButton = new javax.swing.JButton();
+        transTextjLabel = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        filejMenu = new javax.swing.JMenu();
+        loadFilmjMenuItem = new javax.swing.JMenuItem();
+        saveFilmjMenuItem = new javax.swing.JMenuItem();
+        filmjSeparator = new javax.swing.JPopupMenu.Separator();
+        loadShowTimejMenuItem = new javax.swing.JMenuItem();
+        saveShowTimejMenuItem = new javax.swing.JMenuItem();
+        showTimejSeparator = new javax.swing.JPopupMenu.Separator();
+        loadTransactionjMenuItem = new javax.swing.JMenuItem();
+        saveTransactionjMenuItem = new javax.swing.JMenuItem();
+        transactionjSeparator = new javax.swing.JPopupMenu.Separator();
+        quitjMenuItem = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        containerjTabbedPane.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        ticketjPanel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        ticketShowTimejList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        ticketShowTimejScrollPane.setViewportView(ticketShowTimejList);
+
+        ticketShowTimejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ticketShowTimejLabel.setText("Today's Showtimes");
+
+        cartjTextArea.setColumns(20);
+        cartjTextArea.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        cartjTextArea.setRows(5);
+        cartjScrollPane.setViewportView(cartjTextArea);
+
+        cartjLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cartjLabel.setText("Cart:");
+
+        payCashjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        payCashjButton.setText("Cash");
+
+        payCreditjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        payCreditjButton.setText("Credit");
+
+        payCheckjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        payCheckjButton.setText("Check");
+
+        payRewardjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        payRewardjButton.setText("Reward Points");
+
+        jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField1.setText("jTextField1");
+        jTextField1.setEnabled(false);
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField2.setText("jTextField1");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setText("Due:");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("Paid:");
+
+        addTicketjPanel.setLayout(new java.awt.GridLayout(1, 4));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("Add:");
+        addTicketjPanel.add(jLabel14);
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton11.setText("Regular");
+        addTicketjPanel.add(jButton11);
+
+        jButton12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton12.setText("Senior");
+        addTicketjPanel.add(jButton12);
+
+        jButton13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton13.setText("Child");
+        addTicketjPanel.add(jButton13);
+
+        removeTicketjPanel.setLayout(new java.awt.GridLayout());
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setText("Remove:");
+        removeTicketjPanel.add(jLabel13);
+
+        jButton18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton18.setText("Regular");
+        removeTicketjPanel.add(jButton18);
+
+        jButton19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton19.setText("Senior");
+        removeTicketjPanel.add(jButton19);
+
+        jButton20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton20.setText("Child");
+        removeTicketjPanel.add(jButton20);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setText("Change:");
+
+        jTextField3.setEditable(false);
+        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField3.setText("jTextField1");
+        jTextField3.setEnabled(false);
+
+        javax.swing.GroupLayout ticketjPanelLayout = new javax.swing.GroupLayout(ticketjPanel);
+        ticketjPanel.setLayout(ticketjPanelLayout);
+        ticketjPanelLayout.setHorizontalGroup(
+            ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ticketjPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ticketjPanelLayout.createSequentialGroup()
+                        .addComponent(ticketShowTimejLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ticketjPanelLayout.createSequentialGroup()
+                        .addComponent(ticketShowTimejScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ticketjPanelLayout.createSequentialGroup()
+                                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ticketjPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ticketjPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ticketjPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(ticketjPanelLayout.createSequentialGroup()
+                                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(addTicketjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(removeTicketjPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cartjScrollPane, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ticketjPanelLayout.createSequentialGroup()
+                                            .addComponent(payCashjButton)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(payCreditjButton)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(payCheckjButton)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(payRewardjButton))
+                                        .addComponent(cartjLabel, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addGap(0, 79, Short.MAX_VALUE))))))
+        );
+        ticketjPanelLayout.setVerticalGroup(
+            ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ticketjPanelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addTicketjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ticketShowTimejLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ticketShowTimejScrollPane)
+                    .addGroup(ticketjPanelLayout.createSequentialGroup()
+                        .addComponent(removeTicketjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cartjLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cartjScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addGroup(ticketjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(payCashjButton)
+                            .addComponent(payCreditjButton)
+                            .addComponent(payCheckjButton)
+                            .addComponent(payRewardjButton))))
+                .addContainerGap())
+        );
+
+        containerjTabbedPane.addTab("Sell Tickets", ticketjPanel);
+
+        jList2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jList2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList2);
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton6.setText("Add New Film");
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton7.setText("Edit Film");
+
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton8.setText("Delete Film");
+
+        jButton9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton9.setText("Save Schedule");
+
+        jButton10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton10.setText("Load Schedule");
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Run time:");
+
+        jSpinner4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("MPAA Rating:");
+
+        jSpinner5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Film ID:");
+
+        showFilmIDjTextField1.setEditable(false);
+        showFilmIDjTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        showFilmIDjTextField1.setEnabled(false);
+
+        showFilmIDjTextField2.setEditable(false);
+        showFilmIDjTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        showFilmIDjTextField2.setEnabled(false);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Title:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(showFilmIDjTextField1))
+                    .addComponent(showFilmIDjTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(showFilmIDjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(showFilmIDjTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
+
+        javax.swing.GroupLayout filmjPanelLayout = new javax.swing.GroupLayout(filmjPanel);
+        filmjPanel.setLayout(filmjPanelLayout);
+        filmjPanelLayout.setHorizontalGroup(
+            filmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filmjPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(filmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+        filmjPanelLayout.setVerticalGroup(
+            filmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filmjPanelLayout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addGroup(filmjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(filmjPanelLayout.createSequentialGroup()
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton10))
+                    .addComponent(jScrollPane2)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 206, Short.MAX_VALUE))
+                .addGap(82, 82, 82))
+        );
+
+        containerjTabbedPane.addTab("Edit Films", filmjPanel);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Editing Showtimes for:");
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Available Tickets:");
+
+        jSpinner3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Showing at: ");
+
+        jSpinner2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Film ID:");
+
+        showFilmIDjTextField.setEditable(false);
+        showFilmIDjTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        showFilmIDjTextField.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(showFilmIDjTextField))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(23, 23, 23)
+                                .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(showFilmIDjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jList1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Add New Showtime");
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton2.setText("Edit Showtime");
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton3.setText("Save Schedule");
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton4.setText("Delete Showtime");
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton5.setText("Load Schedule");
+
+        javax.swing.GroupLayout showTimejPanelLayout = new javax.swing.GroupLayout(showTimejPanel);
+        showTimejPanel.setLayout(showTimejPanelLayout);
+        showTimejPanelLayout.setHorizontalGroup(
+            showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showTimejPanelLayout.createSequentialGroup()
+                .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(showTimejPanelLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(showTimejPanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(showTimejPanelLayout.createSequentialGroup()
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(showTimejPanelLayout.createSequentialGroup()
+                                .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showTimejPanelLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10))
+                                    .addGroup(showTimejPanelLayout.createSequentialGroup()
+                                        .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton1)
+                                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
+        );
+        showTimejPanelLayout.setVerticalGroup(
+            showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showTimejPanelLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(41, 41, 41)
+                .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(showTimejPanelLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(138, 138, 138))
+        );
+
+        containerjTabbedPane.addTab("Edit Showtimes", showTimejPanel);
+
+        transOutputjTextArea.setColumns(20);
+        transOutputjTextArea.setRows(5);
+        transjScrollPane.setViewportView(transOutputjTextArea);
+
+        nextTransjButton.setText("Next");
+
+        prevTransjButton.setText("Prev");
+
+        lastTransjButton.setText("Last");
+
+        firstTransjButton.setText("First");
+
+        transTextjLabel.setText("Now viewing Transaction#");
+
+        javax.swing.GroupLayout transjPanelLayout = new javax.swing.GroupLayout(transjPanel);
+        transjPanel.setLayout(transjPanelLayout);
+        transjPanelLayout.setHorizontalGroup(
+            transjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(transjPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(transjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(transjScrollPane)
+                    .addGroup(transjPanelLayout.createSequentialGroup()
+                        .addComponent(firstTransjButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(prevTransjButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(transTextjLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(transjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(nextTransjButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(lastTransjButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        transjPanelLayout.setVerticalGroup(
+            transjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(transjPanelLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(transjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nextTransjButton)
+                    .addComponent(prevTransjButton)
+                    .addComponent(transjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastTransjButton)
+                    .addComponent(firstTransjButton)
+                    .addComponent(transTextjLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(transjScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        containerjTabbedPane.addTab("Review Transactions", transjPanel);
+
+        filejMenu.setText("File");
+        filejMenu.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        loadFilmjMenuItem.setText("Load Films");
+        filejMenu.add(loadFilmjMenuItem);
+
+        saveFilmjMenuItem.setText("Save Films");
+        filejMenu.add(saveFilmjMenuItem);
+        filejMenu.add(filmjSeparator);
+
+        loadShowTimejMenuItem.setText("Load Showtimes");
+        loadShowTimejMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadShowTimejMenuItemActionPerformed(evt);
+            }
+        });
+        filejMenu.add(loadShowTimejMenuItem);
+
+        saveShowTimejMenuItem.setText("Save Showtimes");
+        filejMenu.add(saveShowTimejMenuItem);
+        filejMenu.add(showTimejSeparator);
+
+        loadTransactionjMenuItem.setText("Load Transactions");
+        filejMenu.add(loadTransactionjMenuItem);
+
+        saveTransactionjMenuItem.setText("Save Transactions");
+        filejMenu.add(saveTransactionjMenuItem);
+        filejMenu.add(transactionjSeparator);
+
+        quitjMenuItem.setText("Quit");
+        quitjMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitjMenuItemActionPerformed(evt);
+            }
+        });
+        filejMenu.add(quitjMenuItem);
+
+        jMenuBar1.add(filejMenu);
+
+        jMenu2.setText("Edit");
+        jMenu2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(containerjTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(containerjTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loadShowTimejMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadShowTimejMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loadShowTimejMenuItemActionPerformed
+
+    private void quitjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitjMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quitjMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -74,5 +744,90 @@ public class MovieGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel addTicketjPanel;
+    private javax.swing.JLabel cartjLabel;
+    private javax.swing.JScrollPane cartjScrollPane;
+    private javax.swing.JTextArea cartjTextArea;
+    private javax.swing.JTabbedPane containerjTabbedPane;
+    private javax.swing.JMenu filejMenu;
+    private javax.swing.JPanel filmjPanel;
+    private javax.swing.JPopupMenu.Separator filmjSeparator;
+    private javax.swing.JButton firstTransjButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner4;
+    private javax.swing.JSpinner jSpinner5;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton lastTransjButton;
+    private javax.swing.JMenuItem loadFilmjMenuItem;
+    private javax.swing.JMenuItem loadShowTimejMenuItem;
+    private javax.swing.JMenuItem loadTransactionjMenuItem;
+    private javax.swing.JButton nextTransjButton;
+    private javax.swing.JButton payCashjButton;
+    private javax.swing.JButton payCheckjButton;
+    private javax.swing.JButton payCreditjButton;
+    private javax.swing.JButton payRewardjButton;
+    private javax.swing.JButton prevTransjButton;
+    private javax.swing.JMenuItem quitjMenuItem;
+    private javax.swing.JPanel removeTicketjPanel;
+    private javax.swing.JMenuItem saveFilmjMenuItem;
+    private javax.swing.JMenuItem saveShowTimejMenuItem;
+    private javax.swing.JMenuItem saveTransactionjMenuItem;
+    private javax.swing.JTextField showFilmIDjTextField;
+    private javax.swing.JTextField showFilmIDjTextField1;
+    private javax.swing.JTextField showFilmIDjTextField2;
+    private javax.swing.JPanel showTimejPanel;
+    private javax.swing.JPopupMenu.Separator showTimejSeparator;
+    private javax.swing.JLabel ticketShowTimejLabel;
+    private javax.swing.JList<String> ticketShowTimejList;
+    private javax.swing.JScrollPane ticketShowTimejScrollPane;
+    private javax.swing.JPanel ticketjPanel;
+    private javax.swing.JTextArea transOutputjTextArea;
+    private javax.swing.JLabel transTextjLabel;
+    private javax.swing.JPopupMenu.Separator transactionjSeparator;
+    private javax.swing.JPanel transjPanel;
+    private javax.swing.JScrollPane transjScrollPane;
+    private javax.swing.JTextField transjTextField;
     // End of variables declaration//GEN-END:variables
 }

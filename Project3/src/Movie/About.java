@@ -51,7 +51,7 @@ public class About extends javax.swing.JDialog {
         jTextArea.setColumns(20);
         jTextArea.setLineWrap(true);
         jTextArea.setRows(5);
-        jTextArea.setText("The Approximator 9,000!\n\nCreated by Over 9,000 Studios,\nthe Approximator 9,000 generates approximations of pi and e to a high degree of precision, based on user input.\n\nTo get started, drag the slider left or right, then click Calculate.\n\nCopyright 2017\nNot to be used for evil.");
+        jTextArea.setText("The ANC 9,000!\n\nCreated by Over 9,000 Studios,\nthe ANC 9,000 loads a theater's films, showtimes, and transaction history from external XML files. \n\nIn case of data loss, The ANC 9,000 can also be used to create new XML files.\n\n\nCopyright 2017\nNot to be used for evil.");
         jTextArea.setWrapStyleWord(true);
         textjScrollPane.setViewportView(jTextArea);
 
@@ -66,6 +66,7 @@ public class About extends javax.swing.JDialog {
         eIconjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Approximator/ePic.jpg"))); // NOI18N
         iconsjPanel.add(eIconjLabel);
 
+        OKjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OKjButton.setText("OK");
         OKjButton.setToolTipText("Click OK to close");
         OKjButton.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +99,7 @@ public class About extends javax.swing.JDialog {
                     .addComponent(iconsjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(OKjButton)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

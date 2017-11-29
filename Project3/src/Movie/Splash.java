@@ -5,18 +5,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.SwingWorker;
 
 /**
- * class Splash Description: Modal splash screen with progress bar Automatically
+ * class Splash 
+ * Description: Modal splash screen with progress bar Automatically
  * disposes of itself.
  *
  * Contains extensions/overrides for Task Overrides propertyChange Overrides
  * actionPerformed
  *
- * WARNING: NO DEFAULT CONSTRUCTOR MUST BE ATTACHED TO A FRAME 
+ * WARNING: NO DEFAULT CONSTRUCTOR! MUST BE ATTACHED TO A FRAME 
  * WARNING: NO main()! MUST BE INVOKED BY ANOTHER CLASS!
  *
  * @author Hiromi Cota
@@ -26,6 +28,7 @@ public class Splash extends javax.swing.JDialog
         PropertyChangeListener {
 
     private static Task task;
+    private static String didYouKnow = new String();
 
     /**
      * class Task Overrides doInBackground() Wastes a semi-random amount of time
@@ -118,6 +121,8 @@ public class Splash extends javax.swing.JDialog
     public Splash(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        loadDidYouKnow();
+        didYouKnowjLabel.setText("Did you know?" + didYouKnow);
 
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Approximator/piIcon.jpg"));
         // ActionListener needs something to listen to
@@ -126,6 +131,19 @@ public class Splash extends javax.swing.JDialog
         startButton.setActionCommand("start");
         startButton.addActionListener(this);
         startButton.doClick();
+    }
+    /**
+     * method: loadDidYouKnow()
+     * Description: Randomly selects one of the possible Did You Know messages
+     */
+    public void loadDidYouKnow(){
+        String[] listOfDidYouKnows = {
+            "You can add a new version of a film?",
+            "The files data are stored in are XML, a file you can open in a browser!",
+            "It's faster to add two tickets by clicking the add button twice."};
+        
+        int index = (int)(Math.random() * listOfDidYouKnows.length);
+        didYouKnow = listOfDidYouKnows[index];
     }
 
     /**
@@ -140,6 +158,8 @@ public class Splash extends javax.swing.JDialog
         jProgressBar = new javax.swing.JProgressBar();
         loadingjLabel = new javax.swing.JLabel();
         titlejLabel = new javax.swing.JLabel();
+        didYouKnowjPanel = new javax.swing.JPanel();
+        didYouKnowjLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -150,20 +170,42 @@ public class Splash extends javax.swing.JDialog
 
         titlejLabel.setFont(new java.awt.Font("Magneto", 0, 36)); // NOI18N
         titlejLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titlejLabel.setText("Approximator 9,000!");
+        titlejLabel.setText("ANC 9,000!");
+
+        didYouKnowjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+
+        didYouKnowjLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout didYouKnowjPanelLayout = new javax.swing.GroupLayout(didYouKnowjPanel);
+        didYouKnowjPanel.setLayout(didYouKnowjPanelLayout);
+        didYouKnowjPanelLayout.setHorizontalGroup(
+            didYouKnowjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(didYouKnowjPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(didYouKnowjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        didYouKnowjPanelLayout.setVerticalGroup(
+            didYouKnowjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(didYouKnowjPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(didYouKnowjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jProgressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(didYouKnowjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jProgressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(titlejLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(loadingjLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(titlejLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -171,6 +213,8 @@ public class Splash extends javax.swing.JDialog
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titlejLabel)
+                .addGap(18, 18, 18)
+                .addComponent(didYouKnowjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loadingjLabel)
                 .addGap(18, 18, Short.MAX_VALUE)
@@ -182,6 +226,8 @@ public class Splash extends javax.swing.JDialog
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel didYouKnowjLabel;
+    private javax.swing.JPanel didYouKnowjPanel;
     private javax.swing.JProgressBar jProgressBar;
     private javax.swing.JLabel loadingjLabel;
     private javax.swing.JLabel titlejLabel;

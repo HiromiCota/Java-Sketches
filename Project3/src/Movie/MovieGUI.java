@@ -6,6 +6,7 @@ package Movie;
  */
 public class MovieGUI extends javax.swing.JFrame {
 
+    public final String[] regularTicket = {"Regular","Matinee"};
     /**
      * Creates new form MovieGUI
      */

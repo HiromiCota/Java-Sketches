@@ -10,15 +10,23 @@ import java.sql.Time;
 public class ShowTime {
 
     int ShowTimeID;
-    Time ShowTimeTime;
-    int FilmID;
+    Time ShowTimeTime;    
     int TicketsRemaining;
 
-    ShowTime(int ID, int hour, int minutes, int film) {
+    ShowTime(int ID, int hour, int minutes) {
         ShowTimeID = ID;
-        ShowTimeTime = new Time(hour, minutes, 0);
-        FilmID = film;
+        ShowTimeTime = new Time(hour, minutes, 0);    
         TicketsRemaining = 100;
     }
+    
+    Boolean sellTicket(int ticketsSold){
+        if (TicketsRemaining - ticketsSold >= 0)
+        {
+            TicketsRemaining -= ticketsSold;
+            return true;
+        }
+        return false;
+    }
+            
 
 }

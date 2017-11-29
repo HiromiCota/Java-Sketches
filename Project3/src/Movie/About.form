@@ -71,7 +71,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="OKjButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -90,7 +90,7 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="The Approximator 9,000!&#xa;&#xa;Created by Over 9,000 Studios,&#xa;the Approximator 9,000 generates approximations of pi and e to a high degree of precision, based on user input.&#xa;&#xa;To get started, drag the slider left or right, then click Calculate.&#xa;&#xa;Copyright 2017&#xa;Not to be used for evil."/>
+                <Property name="text" type="java.lang.String" value="The ANC 9,000!&#xa;&#xa;Created by Over 9,000 Studios,&#xa;the ANC 9,000 loads a theater&apos;s films, showtimes, and transaction history from external XML files. &#xa;&#xa;In case of data loss, The ANC 9,000 can also be used to create new XML files.&#xa;&#xa;&#xa;Copyright 2017&#xa;Not to be used for evil."/>
                 <Property name="wrapStyleWord" type="boolean" value="true"/>
               </Properties>
             </Component>
@@ -130,6 +130,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="OKjButton">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="OK"/>
             <Property name="toolTipText" type="java.lang.String" value="Click OK to close"/>
           </Properties>

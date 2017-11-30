@@ -93,8 +93,8 @@ public class Parse {
             newNode.setNodeValue(Integer.toString(startIndex + i));
             Element showTime = doc.createElement("ShowTime");
             showTime.appendChild(doc.createTextNode(temp.getTime().toString()));
-            Element filmID = doc.createElement("FilmID");
-            filmID.appendChild(doc.createTextNode(Integer.toString(temp.getTime().FilmID)));
+            Element filmID = doc.createElement("Film");
+            filmID.appendChild(doc.createTextNode(temp.getTitle()));
             Element price = doc.createElement("Price per");
             price.appendChild(doc.createTextNode(Double.toString(temp.getPrice())));
             Element quantity = doc.createElement("Quantity");

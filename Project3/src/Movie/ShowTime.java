@@ -27,6 +27,11 @@ public class ShowTime {
         }
         return false;
     }
-            
+    public int getFilmID(){
+        return ShowTimeID;
+    }
+    public Time getTime(){
+        return ShowTimeTime;
+    }
 
 }

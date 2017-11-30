@@ -8,62 +8,63 @@ import java.util.ArrayList;
  */
 public class Cart {
 
-    ArrayList<Ticket> TicketsInCart;
-    ArrayList Quantity;
+    ArrayList<Ticket> TicketsInCart;    
     double total;
     final double TAX_RATE = 0.089;
 
-    public void addShowTime(Ticket ticket, int quantity) {
-        int index = TicketsInCart.indexOf(ticket);
+    public void addTicket(Ticket ticket) {
+        int index = findFilmID(ticket.getFilmID());
         if (index != -1) {
-            quantity = (int) Quantity.get(index);
-            quantity++;
-            Quantity.remove(index);
-            Quantity.add(index, quantity);
+            TicketsInCart.get(index).updateQuantity(ticket.getQuantity());
         } else {
-            TicketsInCart.add(ticket);
-            Quantity.add(1);
+            TicketsInCart.add(ticket);            
         }
     }
 
-    public void addShowTime(Ticket ticket) {
-        addShowTime(ticket, 1);
+    public int findFilmID(int searchID){
+        for (int i = 0; i < TicketsInCart.size();i++){
+            if (TicketsInCart.get(i).getFilmID() == searchID)
+                return i;
+        }
+        return -1;
     }
 
-    public int removeTicket(Ticket ticket, int quantity) {
-        int index = TicketsInCart.indexOf(ticket);
+    public int removeTicket(int filmID, int quantity) {
+        int index = findFilmID(filmID);
         if (index == -1) {
             return index; //Failure. No such ticket
         }
-        quantity -= (int) Quantity.get(index);
-        if (quantity > 0) {
-            Quantity.remove(index);
-            Quantity.add(index, quantity);
+        int available = TicketsInCart.get(index).getQuantity();
+        if (quantity > available)
+            return -2; //Failure. Not enough tickets.
+        else if (quantity < available)
+        {
+            TicketsInCart.get(index).updateQuantity(-1 * quantity);
             return 0; //Success, no issues.
         } else {
-            TicketsInCart.remove(index);
-            Quantity.remove(index);
+            TicketsInCart.remove(index);            
             return 1; //Success, no more of that quantity exist.
         }
     }
 
     public int getQuantity(int index) {
-        return (int) Quantity.get(index);
+        return (int) TicketsInCart.get(index).getQuantity();
     }
 
-    public int removeTicket(Ticket ticket) {
-        return removeTicket(ticket, 1);
+    public int removeTicket(int filmID) {
+        int index = findFilmID(filmID);
+        int quantity = TicketsInCart.get(index).getQuantity();
+        return removeTicket(filmID, quantity);
     }
 
-    public void clear() {
-        Quantity.removeAll(Quantity);
+    public void clear() {        
         TicketsInCart.removeAll(TicketsInCart);
     }
 
     public double getSubtotal() {
         total = 0.0;
         for (int i = 0; i <= TicketsInCart.size(); i++) {
-            total += TicketsInCart.get(i).getPrice() * (double) Quantity.get(i);
+            total += TicketsInCart.get(i).getSubtotal();
         }
         return total;
     }

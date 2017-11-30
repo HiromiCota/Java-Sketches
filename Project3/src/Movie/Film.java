@@ -1,6 +1,7 @@
 package Movie;
 
 import java.io.File;
+import java.sql.Time;
 import java.util.ArrayList;
 
 /**
@@ -55,6 +56,21 @@ public class Film {
         return addShowTime(incoming);
         }
         return false;
+    }
+    
+    public Boolean deleteShowTime(ShowTime incoming){
+        int index = findShowTime(incoming.getTime());
+        if (index == -1)
+            return false;
+        ShowTimes.remove(index);
+        return true;
+    }
+    
+    public int findShowTime(Time time){
+        for (int i = 0; i < ShowTimes.size();i++)
+            if (ShowTimes.get(i).getTime().equals(time))
+                return i;
+        return -1;
     }
 
 }

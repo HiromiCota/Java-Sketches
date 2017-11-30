@@ -29,32 +29,41 @@ public class Cart {
         return -1;
     }
 
-    public int removeTicket(int filmID, int quantity) {
+    public int removeTicket(int filmID, int[] quantity) {
         int index = findFilmID(filmID);
         if (index == -1) {
             return index; //Failure. No such ticket
         }
-        int available = TicketsInCart.get(index).getQuantity();
-        if (quantity > available)
-            return -2; //Failure. Not enough tickets.
-        else if (quantity < available)
+        int[] available = TicketsInCart.get(index).getQuantity();
+        int output = 0;
+        for (int i = 0; i < Ticket.TYPES_OF_TICKETS; i++)
         {
-            TicketsInCart.get(index).updateQuantity(-1 * quantity);
-            return 0; //Success, no issues.
-        } else {
-            TicketsInCart.remove(index);            
-            return 1; //Success, no more of that quantity exist.
+            if (quantity[i] > available[i])
+                output = -2; //Failure. Not enough tickets.
+            else if (quantity[i] < available[i])
+            {
+                quantity[i] = (-1 * quantity[i]);
+                output = 1; //This tells us that there is at least one more left
+            } else {
+                quantity[i] = (-1 * quantity[i]);            
+            } 
+            if (output == 0) //This means there are no more left. Drop the Ticket
+                TicketsInCart.remove(index);     
+            else
+            {
+                TicketsInCart.get(index).updateQuantity(quantity);
+            }
         }
+        return output;
     }
 
-    public int getQuantity(int index) {
-        return (int) TicketsInCart.get(index).getQuantity();
+    public int[] getQuantity(int index) {
+        return TicketsInCart.get(index).getQuantity();
     }
 
-    public int removeTicket(int filmID) {
+    public void removeTicket(int filmID) {
         int index = findFilmID(filmID);
-        int quantity = TicketsInCart.get(index).getQuantity();
-        return removeTicket(filmID, quantity);
+        TicketsInCart.remove(index);        
     }
 
     public void clear() {        

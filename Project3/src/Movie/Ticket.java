@@ -14,29 +14,23 @@ public class Ticket {
     public enum Price {
         FULLPRICE, CHILD, SENIOR, MATINEE
     }
+    public final int fullPrice = 0, childPrice = 1, seniorPrice = 2, matineePrice = 3;
     int ticketID;
-    int quantity;
+    public final static int TYPES_OF_TICKETS = 4;
+    public final static Price[] PRICE_LIST = {Price.FULLPRICE, Price.CHILD, Price.SENIOR, Price.MATINEE};
+    int[] quantity = new int[TYPES_OF_TICKETS];
     Time thisTime;
     Price thisPrice;
     String thisFilm;
     int filmID;
 
-    Ticket(int ID, Price price, Time timeOfShow, String title, int newFilmID, int number) {
+    Ticket(int ID, Time timeOfShow, String title, int newFilmID, int[] number) {
         ticketID = ID;
-        thisTime = timeOfShow;
-        thisPrice = price;
+        thisTime = timeOfShow;        
         thisFilm = title;
         filmID = newFilmID;
         quantity = number;
-    }
-    Ticket(int ID, Price price, Time timeOfShow, String title,int newFilmID ) {
-        ticketID = ID;
-        thisTime = timeOfShow;
-        thisPrice = price;
-        thisFilm = title;
-        filmID = newFilmID;
-        quantity = 1;
-    }
+    }    
     
     public static Price stringToPrice(String input){
         switch(input)
@@ -58,7 +52,7 @@ public class Ticket {
         this.ticketID = ticketID;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(int[] quantity) {
         this.quantity = quantity;
     }
 
@@ -86,8 +80,8 @@ public class Ticket {
         return thisPrice.toString();
     }
 
-    public double getPrice() {
-        switch (thisPrice) {
+    public double getPrice(Price price) {
+        switch (price) {
             case FULLPRICE:
                 return NORMAL;
             case CHILD:
@@ -104,15 +98,60 @@ public class Ticket {
         return thisFilm;
     }
     
-    public int getQuantity(){
+    public int priceToInt(Price price){
+        switch(price)
+        {
+            case FULLPRICE:
+                return fullPrice;
+            case CHILD:
+                return childPrice;
+            case SENIOR:
+                return seniorPrice;
+            case MATINEE:
+                return matineePrice;
+            default:
+                return matineePrice;
+        }
+    }
+    
+    public int[] getQuantity(){
         return quantity;
+    }
+    
+    public int getTotalQuantity(){
+        int output = 0;
+        for (int i = 0; i < TYPES_OF_TICKETS;i++)
+        {
+            output+= quantity[i];
+        }
+        return output;
+    }
+    
+    public int getQuantity(Price price){        
+        return quantity[priceToInt(price)];
     }
     public int getFilmID(){
         return filmID;
     }
     
     public double getSubtotal(){
-        return quantity * getPrice();
+        double output = 0.0;
+        for (int i = 0; i < TYPES_OF_TICKETS; i++)
+        {
+            output += quantity[i] * getPrice(PRICE_LIST[i]);
+        }
+        return output;
+    }
+    
+    public String quantityToString(){
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < TYPES_OF_TICKETS; i++)
+        {
+            output.append(Integer.toString(quantity[i]));
+            if (i != TYPES_OF_TICKETS -1)
+                output.append(" ");
+        }
+        return output.toString();
     }
     /**
      * updateQuantity()
@@ -123,13 +162,18 @@ public class Ticket {
      * 
      * @return Returns success or failure
      */
-    public Boolean updateQuantity(int number)
+    public Boolean updateQuantity(int[] number)
     {
-        if (quantity + number >= 0){
-            quantity += number;
-            return true;
-        }
-        return false;
+        for (int i = 0; i < TYPES_OF_TICKETS; i++)
+        {
+            if (quantity[i] + number[i] >= 0){
+                quantity[i] += number[i];                
+            }
+            else
+                return false;
+        }        
+        return true;
     }
+    
     
 }

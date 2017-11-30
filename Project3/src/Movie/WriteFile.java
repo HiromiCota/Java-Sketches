@@ -26,7 +26,7 @@ import org.xml.sax.SAXException;
  * @author Hiromi
  */
 public class WriteFile {
-    public Boolean writeTransaction(Cart cart, File file)
+    public Boolean writeTicketSales(Cart cart, File file)
             throws ParserConfigurationException, TransformerConfigurationException, TransformerException, SAXException, IOException {
         if (!file.canWrite()) {
             return false;
@@ -46,7 +46,7 @@ public class WriteFile {
                 doc = buildRootNode(cart, validation); //Overwriting. Hope it's blank.
                 break;
             default:
-                appendTransaction(cart, doc, validation);
+                appendTicketSales(cart, doc, validation);
                 break;
         }
         //Let's hit the disk and write
@@ -59,7 +59,7 @@ public class WriteFile {
         return true;
     }
 
-    public Boolean appendTransaction(Cart cart, Document doc, int startIndex) {
+    public Boolean appendTicketSales(Cart cart, Document doc, int startIndex) {
         //Start traversing the ArrayList
         for (int i = 0; i < cart.size(); i++) {
             Ticket temp = cart.get(i);
@@ -70,19 +70,16 @@ public class WriteFile {
             showTime.appendChild(doc.createTextNode(temp.getTime().toString()));
             Element filmID = doc.createElement("Film");
             filmID.appendChild(doc.createTextNode(temp.getTitle()));
-            Element price = doc.createElement("Price per");
-            price.appendChild(doc.createTextNode(Double.toString(temp.getPrice())));
             Element quantity = doc.createElement("Quantity");
-            quantity.appendChild(doc.createTextNode(Integer.toString(cart.getQuantity(i))));
+            quantity.appendChild(doc.createTextNode(temp.quantityToString()));
             Element subTotal = doc.createElement("Subtotal");
-            subTotal.appendChild(doc.createTextNode(Double.toString(temp.getPrice() * cart.getQuantity(i))));
+            subTotal.appendChild(doc.createTextNode(Double.toString(temp.getSubtotal())));
 
             //Write the node
             doc.getDocumentElement().appendChild(newNode);
             //Populate the node
             newNode.appendChild(showTime);
-            newNode.appendChild(filmID);
-            newNode.appendChild(price);
+            newNode.appendChild(filmID);            
             newNode.appendChild(quantity);
             newNode.appendChild(subTotal);
         }//End of node generating for loop
@@ -98,7 +95,7 @@ public class WriteFile {
         doc.appendChild(rootElement);
 
         //Build the child nodes
-        if (appendTransaction(cart, doc, startIndex)) {
+        if (appendTicketSales(cart, doc, startIndex)) {
             return doc;
         } else //I donno. Fail and cry, I guess.
         {

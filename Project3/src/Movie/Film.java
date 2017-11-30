@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Film {
 
-    File films = new File("/src/Movie/Films.xml");
+    
 
     public enum Rating {
         G, PG, PG13, R

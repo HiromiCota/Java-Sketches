@@ -1,5 +1,8 @@
 package Movie;
 
+import java.io.File;
+import java.sql.Time;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -8,7 +11,11 @@ import javax.swing.JOptionPane;
  */
 public class MovieGUI extends javax.swing.JFrame {
 
+    File films = new File("/src/Movie/Films.xml");
+    File tickets = new File("/src/Movie/Ticket.xml");
+
     public final String[] regularTicket = {"Regular","Matinee"};
+    
     /**
      * Creates new form MovieGUI
      */
@@ -18,7 +25,7 @@ public class MovieGUI extends javax.swing.JFrame {
         splash.setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
         splash.setVisible(true);
-        
+
     }
 
     /**
@@ -123,6 +130,7 @@ public class MovieGUI extends javax.swing.JFrame {
         aboutjMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         containerjTabbedPane.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -760,6 +768,10 @@ public class MovieGUI extends javax.swing.JFrame {
 
     private void loadShowTimejMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadShowTimejMenuItemActionPerformed
         // TODO add your handling code here:
+        FileSelector load = new FileSelector(this, true);
+        
+        
+        
     }//GEN-LAST:event_loadShowTimejMenuItemActionPerformed
 
     private void quitjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitjMenuItemActionPerformed

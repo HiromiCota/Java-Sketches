@@ -50,6 +50,7 @@ public class ReadFile {
         "Price",            //5
         "TicketTitle",      //6
         "TicketFilmID"};    //7
+    
  
     
     public ArrayList<Film> parseFilm(File input) {
@@ -129,7 +130,7 @@ public class ReadFile {
                 //This block is ugly, but actually pretty simple:
                 //Find the element for the property, parse it, set it
                 thisTicket.setTicketID(readIntTag(data,(TICKET_TAGS[1])));
-                thisTicket.setQuantity(readIntTag(data,(TICKET_TAGS[2])));
+                thisTicket.setQuantity(readArrayTag(data,(TICKET_TAGS[2])));
                 thisTicket.setThisTime(new Time(
                         readIntTag(data,(TICKET_TAGS[3])),
                         readIntTag(data,(TICKET_TAGS[4])),
@@ -153,6 +154,17 @@ public class ReadFile {
     
     public int readIntTag(Element data, String tag){
         return Integer.parseInt(readStringTag(data,tag));
+    }
+    
+    public int[] readArrayTag(Element data, String tag){
+        String raw = readStringTag(data, tag);
+        int[] output = new int[Ticket.TYPES_OF_TICKETS];
+        for (int i = 0; i < Ticket.TYPES_OF_TICKETS; i++)
+        {
+            output[i] = Integer.parseInt(raw.substring(0, raw.indexOf(" ")));
+            raw = raw.substring(raw.indexOf(" "));
+        }
+        return output;
     }
 
     

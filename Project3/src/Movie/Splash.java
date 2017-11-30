@@ -163,6 +163,7 @@ public class Splash extends javax.swing.JDialog
         didYouKnowjTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jProgressBar.setToolTipText("Wait a few moments.");
 
@@ -175,6 +176,7 @@ public class Splash extends javax.swing.JDialog
 
         didYouKnowjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
 
+        didYouKnowjTextArea.setEditable(false);
         didYouKnowjTextArea.setColumns(20);
         didYouKnowjTextArea.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         didYouKnowjTextArea.setLineWrap(true);

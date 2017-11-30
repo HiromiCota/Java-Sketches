@@ -276,7 +276,7 @@
             <Component class="javax.swing.JLabel" name="ticketShowTimejLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
+                  <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Today&apos;s Showtimes"/>
               </Properties>
@@ -340,6 +340,13 @@
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="addTicketjPanel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+              </Properties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                 <Property name="columns" type="int" value="5"/>
@@ -354,6 +361,13 @@
                     <Property name="text" type="java.lang.String" value="Add:"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JSpinner" name="addjSpinner">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
                 <Component class="javax.swing.JButton" name="addRegularjButton">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -361,6 +375,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Regular"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addRegularjButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="addSeniorjButton">
                   <Properties>
@@ -369,6 +386,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Senior"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addSeniorjButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="addChildjButton">
                   <Properties>
@@ -377,12 +397,20 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Child"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="addSpacerjLabel">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addChildjButtonActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="removeTicketjPanel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+              </Properties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                 <Property name="columns" type="int" value="5"/>
@@ -397,6 +425,13 @@
                     <Property name="text" type="java.lang.String" value="Remove:"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JSpinner" name="removejSpinner">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
                 <Component class="javax.swing.JButton" name="removeRegularjButton">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -404,6 +439,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Regular"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeRegularjButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="removeSeniorjButton">
                   <Properties>
@@ -412,6 +450,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Senior"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeSeniorjButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="removeChildjButton">
                   <Properties>
@@ -420,14 +461,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Child"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="removeAlljButton">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="14" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="ALL"/>
-                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeChildjButtonActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -545,7 +581,7 @@
                               <Component id="loadFilmjButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="filmjScrollPane" alignment="0" max="32767" attributes="0"/>
-                          <Component id="editFilmjPanel" alignment="0" pref="207" max="32767" attributes="0"/>
+                          <Component id="editFilmjPanel" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   </Group>
@@ -832,7 +868,7 @@
                               <Component id="editShowTimejButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="deleteShowTimejButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="49" max="32767" attributes="0"/>
+                              <EmptySpace pref="53" max="32767" attributes="0"/>
                               <Component id="saveShowTimejButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="loadShowTimejButton" min="-2" max="-2" attributes="0"/>
@@ -1119,7 +1155,7 @@
                           <Component id="transTextjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="transjScrollPane" pref="322" max="32767" attributes="0"/>
+                      <Component id="transjScrollPane" pref="326" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>

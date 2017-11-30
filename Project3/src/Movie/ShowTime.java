@@ -9,6 +9,7 @@ import java.sql.Time;
  */
 public class ShowTime {
 
+    final int DEFAULT_TICKETS = 100;
     int ShowTimeID;
     Time ShowTimeTime;    
     int TicketsRemaining;
@@ -16,7 +17,22 @@ public class ShowTime {
     ShowTime(int ID, int hour, int minutes) {
         ShowTimeID = ID;
         ShowTimeTime = new Time(hour, minutes, 0);    
-        TicketsRemaining = 100;
+        TicketsRemaining = DEFAULT_TICKETS;
+    }
+
+    public ShowTime() {
+    }
+
+    public void setShowTimeID(int ShowTimeID) {
+        this.ShowTimeID = ShowTimeID;
+    }
+
+    public void setShowTimeTime(Time ShowTimeTime) {
+        this.ShowTimeTime = ShowTimeTime;
+    }
+
+    public void setTicketsRemaining(int TicketsRemaining) {
+        this.TicketsRemaining = TicketsRemaining;
     }
     
     Boolean sellTicket(int ticketsSold){

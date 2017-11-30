@@ -9,6 +9,6 @@ import java.util.ArrayList;
 public class Movie {
 
     ArrayList<Film> Films;
-    ArrayList<ShowTime> ShowTimes;
+    ArrayList<Ticket> Tickets;
 
 }

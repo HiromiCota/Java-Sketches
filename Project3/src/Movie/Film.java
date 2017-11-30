@@ -21,6 +21,28 @@ public class Film {
     public Rating MPAARating;
     public ArrayList<ShowTime> ShowTimes; 
 
+    public Film() {
+    }
+
+    public void setFilmID(int FilmID) {
+        this.FilmID = FilmID;
+    }
+
+    public void setMinutesLong(int MinutesLong) {
+        this.MinutesLong = MinutesLong;
+    }
+
+    public void setTitle(String Title) {
+        this.Title = Title;
+    }
+
+    public void setMPAARating(Rating MPAARating) {
+        this.MPAARating = MPAARating;
+    }
+
+    public void setShowTimes(ArrayList<ShowTime> ShowTimes) {
+        this.ShowTimes = ShowTimes;
+    }
 
     public int getFilmID() {
         return FilmID;
@@ -36,6 +58,20 @@ public class Film {
 
     public Rating getMPAARating() {
         return MPAARating;
+    }
+    
+    public static Rating stringToRating(String input){
+        switch(input)
+        {
+            case"G":
+                return Rating.G;
+            case"PG":
+                return Rating.PG;
+            case"PG13":
+                return Rating.PG13;
+            default:
+                return Rating.R;
+        }
     }
 
     Film(int film, int length, String title, Rating rating) {

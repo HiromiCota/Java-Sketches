@@ -1,9 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Movie;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,42 +18,14 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+
 /**
- * File: Parse.java Contains methods to parse XML files If files are unreadable,
- * these methods will return empty ArrayLists They should not throw unhandled
- * exceptions.
  *
- * @author Hiromi Cota
+ * @author Hiromi
  */
-public class Parse {
-
-    public ArrayList<Film> parseFilm(File input) {
-        //Declare return value
-        ArrayList<Film> output = new ArrayList();
-
-        //Parse file
-        return output;
-    }
-
-    public ArrayList<ShowTime> parseShowTimes(File input) {
-        //Declare return value
-        ArrayList<ShowTime> output = new ArrayList();
-
-        //Parse file
-        return output;
-    }
-
-    public ArrayList<Ticket> parseTickets(File input) {
-        //Declare return value
-        ArrayList<Ticket> output = new ArrayList();
-
-        //Parse file
-        return output;
-    }
-
+public class WriteFile {
     public Boolean writeTransaction(Cart cart, File file)
             throws ParserConfigurationException, TransformerConfigurationException, TransformerException, SAXException, IOException {
         if (!file.canWrite()) {
@@ -60,10 +35,10 @@ public class Parse {
         if (!file.exists()) {
             doc = buildRootNode(cart, 0);
         } else {
-            doc = parseXML(file);
+            doc = FileUtilities.parseXmlToDoc(file);
         }
 
-        int validation = validateDoc(doc);
+        int validation = FileUtilities.validateDoc(doc);
         switch (validation) {
             case -1:
                 return false;
@@ -114,36 +89,11 @@ public class Parse {
         return true;
     }
 
-    public int validateDoc(Document doc) {
-        // If it's not XML, return -1
-        if (doc.getXmlVersion() == null) {
-            return -1;
-        } else if (doc.hasChildNodes()) {
-            //If there are Transaction elements, count them and return that.
-            NodeList list = doc.getElementsByTagName("Transaction #");
-            return list.getLength();
-        }
-        //If there are no child elements, return 0
-        return 0;
-    } //The version of XML shouldn't matter. But, if it's not XML, we need to stop.
-
-    public Boolean validateTransactions(Cart cart) {
-        return !cart.isEmpty();
-    }
-
-    public Document parseXML(File file) throws ParserConfigurationException, SAXException, IOException {
-        DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
-        return documentBuilder.parse(file);
-    }
-
     public Document buildRootNode(Cart cart, int startIndex) throws ParserConfigurationException {
-        //Need the factory and the builder to generator DOM XML
-        DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
-
-        //Build the root node
-        Document doc = documentBuilder.newDocument();
+        //Build new document
+        Document doc = FileUtilities.getDoc();
+        
+        //Build the root node        
         Element rootElement = doc.createElement("Transactions");
         doc.appendChild(rootElement);
 

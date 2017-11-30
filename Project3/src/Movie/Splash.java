@@ -57,7 +57,7 @@ public class Splash extends javax.swing.JDialog
             while (progress < 100) {
                 //Sleep for up to one second.
                 try {
-                    Thread.sleep(random.nextInt(100));
+                    Thread.sleep(random.nextInt(200));
                 } catch (InterruptedException ignore) {
                 }
                 //Make random progress.
@@ -122,7 +122,7 @@ public class Splash extends javax.swing.JDialog
         super(parent, modal);
         initComponents();
         loadDidYouKnow();
-        didYouKnowjLabel.setText("Did you know?" + didYouKnow);
+        didYouKnowjTextArea.setText("Did you know?\n\n" + didYouKnow);
 
         this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Approximator/piIcon.jpg"));
         // ActionListener needs something to listen to
@@ -159,7 +159,8 @@ public class Splash extends javax.swing.JDialog
         loadingjLabel = new javax.swing.JLabel();
         titlejLabel = new javax.swing.JLabel();
         didYouKnowjPanel = new javax.swing.JPanel();
-        didYouKnowjLabel = new javax.swing.JLabel();
+        didYouKnowjScrollPane = new javax.swing.JScrollPane();
+        didYouKnowjTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -174,7 +175,12 @@ public class Splash extends javax.swing.JDialog
 
         didYouKnowjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
 
-        didYouKnowjLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        didYouKnowjTextArea.setColumns(20);
+        didYouKnowjTextArea.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        didYouKnowjTextArea.setLineWrap(true);
+        didYouKnowjTextArea.setRows(5);
+        didYouKnowjTextArea.setWrapStyleWord(true);
+        didYouKnowjScrollPane.setViewportView(didYouKnowjTextArea);
 
         javax.swing.GroupLayout didYouKnowjPanelLayout = new javax.swing.GroupLayout(didYouKnowjPanel);
         didYouKnowjPanel.setLayout(didYouKnowjPanelLayout);
@@ -182,14 +188,14 @@ public class Splash extends javax.swing.JDialog
             didYouKnowjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(didYouKnowjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(didYouKnowjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(didYouKnowjScrollPane)
                 .addContainerGap())
         );
         didYouKnowjPanelLayout.setVerticalGroup(
             didYouKnowjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(didYouKnowjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(didYouKnowjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addComponent(didYouKnowjScrollPane)
                 .addContainerGap())
         );
 
@@ -226,8 +232,9 @@ public class Splash extends javax.swing.JDialog
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel didYouKnowjLabel;
     private javax.swing.JPanel didYouKnowjPanel;
+    private javax.swing.JScrollPane didYouKnowjScrollPane;
+    private javax.swing.JTextArea didYouKnowjTextArea;
     private javax.swing.JProgressBar jProgressBar;
     private javax.swing.JLabel loadingjLabel;
     private javax.swing.JLabel titlejLabel;

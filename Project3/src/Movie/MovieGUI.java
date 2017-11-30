@@ -1,5 +1,7 @@
 package Movie;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Hiromi Cota
@@ -12,6 +14,11 @@ public class MovieGUI extends javax.swing.JFrame {
      */
     public MovieGUI() {
         initComponents();
+        Splash splash = new Splash(this, true);
+        splash.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
+        splash.setVisible(true);
+        
     }
 
     /**
@@ -37,16 +44,16 @@ public class MovieGUI extends javax.swing.JFrame {
         tenderedjLabel = new javax.swing.JLabel();
         addTicketjPanel = new javax.swing.JPanel();
         addPaneljLabel = new javax.swing.JLabel();
+        addjSpinner = new javax.swing.JSpinner();
         addRegularjButton = new javax.swing.JButton();
         addSeniorjButton = new javax.swing.JButton();
         addChildjButton = new javax.swing.JButton();
-        addSpacerjLabel = new javax.swing.JLabel();
         removeTicketjPanel = new javax.swing.JPanel();
         removePaneljLabel = new javax.swing.JLabel();
+        removejSpinner = new javax.swing.JSpinner();
         removeRegularjButton = new javax.swing.JButton();
         removeSeniorjButton = new javax.swing.JButton();
         removeChildjButton = new javax.swing.JButton();
-        removeAlljButton = new javax.swing.JButton();
         changejLabel = new javax.swing.JLabel();
         changejTextField = new javax.swing.JTextField();
         checkOutjPanel = new javax.swing.JPanel();
@@ -128,7 +135,7 @@ public class MovieGUI extends javax.swing.JFrame {
         });
         ticketShowTimejScrollPane.setViewportView(ticketShowTimejList);
 
-        ticketShowTimejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ticketShowTimejLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ticketShowTimejLabel.setText("Today's Showtimes");
 
         cartjTextArea.setColumns(20);
@@ -151,46 +158,79 @@ public class MovieGUI extends javax.swing.JFrame {
         tenderedjLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tenderedjLabel.setText("Tendered:");
 
+        addTicketjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         addTicketjPanel.setLayout(new java.awt.GridLayout(1, 5));
 
         addPaneljLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addPaneljLabel.setText("Add:");
         addTicketjPanel.add(addPaneljLabel);
 
+        addjSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addTicketjPanel.add(addjSpinner);
+
         addRegularjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addRegularjButton.setText("Regular");
+        addRegularjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addRegularjButtonActionPerformed(evt);
+            }
+        });
         addTicketjPanel.add(addRegularjButton);
 
         addSeniorjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addSeniorjButton.setText("Senior");
+        addSeniorjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSeniorjButtonActionPerformed(evt);
+            }
+        });
         addTicketjPanel.add(addSeniorjButton);
 
         addChildjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addChildjButton.setText("Child");
+        addChildjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addChildjButtonActionPerformed(evt);
+            }
+        });
         addTicketjPanel.add(addChildjButton);
-        addTicketjPanel.add(addSpacerjLabel);
 
+        removeTicketjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         removeTicketjPanel.setLayout(new java.awt.GridLayout(1, 5));
 
         removePaneljLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         removePaneljLabel.setText("Remove:");
         removeTicketjPanel.add(removePaneljLabel);
 
+        removejSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        removeTicketjPanel.add(removejSpinner);
+
         removeRegularjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         removeRegularjButton.setText("Regular");
+        removeRegularjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeRegularjButtonActionPerformed(evt);
+            }
+        });
         removeTicketjPanel.add(removeRegularjButton);
 
         removeSeniorjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         removeSeniorjButton.setText("Senior");
+        removeSeniorjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeSeniorjButtonActionPerformed(evt);
+            }
+        });
         removeTicketjPanel.add(removeSeniorjButton);
 
         removeChildjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         removeChildjButton.setText("Child");
+        removeChildjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeChildjButtonActionPerformed(evt);
+            }
+        });
         removeTicketjPanel.add(removeChildjButton);
-
-        removeAlljButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        removeAlljButton.setText("ALL");
-        removeTicketjPanel.add(removeAlljButton);
 
         changejLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         changejLabel.setText("Change:");
@@ -199,7 +239,7 @@ public class MovieGUI extends javax.swing.JFrame {
         changejTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         changejTextField.setEnabled(false);
 
-        checkOutjPanel.setLayout(new java.awt.GridLayout());
+        checkOutjPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         payCashjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         payCashjButton.setText("Cash");
@@ -429,7 +469,7 @@ public class MovieGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(loadFilmjButton))
                     .addComponent(filmjScrollPane)
-                    .addComponent(editFilmjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, Short.MAX_VALUE))
+                    .addComponent(editFilmjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(82, 82, 82))
         );
 
@@ -581,7 +621,7 @@ public class MovieGUI extends javax.swing.JFrame {
                         .addComponent(editShowTimejButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(deleteShowTimejButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                         .addComponent(saveShowTimejButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(loadShowTimejButton))
@@ -640,7 +680,7 @@ public class MovieGUI extends javax.swing.JFrame {
                     .addComponent(firstTransjButton)
                     .addComponent(transTextjLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(transjScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                .addComponent(transjScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -723,8 +763,38 @@ public class MovieGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_loadShowTimejMenuItemActionPerformed
 
     private void quitjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitjMenuItemActionPerformed
-        // TODO add your handling code here:
+        int quit = (JOptionPane.showConfirmDialog(
+                rootPane, 
+                "Are you sure you want to quit?", 
+                "Qutting so soon?", 
+                JOptionPane.YES_NO_OPTION));
+        if (quit == JOptionPane.YES_OPTION)
+            System.exit(0);
     }//GEN-LAST:event_quitjMenuItemActionPerformed
+
+    private void addRegularjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRegularjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addRegularjButtonActionPerformed
+
+    private void addSeniorjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSeniorjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addSeniorjButtonActionPerformed
+
+    private void addChildjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addChildjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addChildjButtonActionPerformed
+
+    private void removeRegularjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeRegularjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeRegularjButtonActionPerformed
+
+    private void removeSeniorjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeSeniorjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeSeniorjButtonActionPerformed
+
+    private void removeChildjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeChildjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeChildjButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -757,6 +827,7 @@ public class MovieGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MovieGUI().setVisible(true);
+                
             }
         });
     }
@@ -770,8 +841,8 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JButton addRegularjButton;
     private javax.swing.JButton addSeniorjButton;
     private javax.swing.JButton addShowTimejButton;
-    private javax.swing.JLabel addSpacerjLabel;
     private javax.swing.JPanel addTicketjPanel;
+    private javax.swing.JSpinner addjSpinner;
     private javax.swing.JLabel cartjLabel;
     private javax.swing.JScrollPane cartjScrollPane;
     private javax.swing.JTextArea cartjTextArea;
@@ -814,12 +885,12 @@ public class MovieGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem quitjMenuItem;
     private javax.swing.JLabel ratingjLabel;
     private javax.swing.JSpinner ratingjSpinner;
-    private javax.swing.JButton removeAlljButton;
     private javax.swing.JButton removeChildjButton;
     private javax.swing.JLabel removePaneljLabel;
     private javax.swing.JButton removeRegularjButton;
     private javax.swing.JButton removeSeniorjButton;
     private javax.swing.JPanel removeTicketjPanel;
+    private javax.swing.JSpinner removejSpinner;
     private javax.swing.JLabel runTimejLabel;
     private javax.swing.JSpinner runTimejSpinner;
     private javax.swing.JButton saveFilmjButton;

@@ -37,6 +37,46 @@ public class Ticket {
         filmID = newFilmID;
         quantity = 1;
     }
+    
+    public static Price stringToPrice(String input){
+        switch(input)
+        {
+            case"FULLPRICE":
+                return Price.FULLPRICE;
+            case"CHILD":
+                return Price.CHILD;
+            case"SENIOR":
+                return Price.SENIOR;
+            default:
+                return Price.MATINEE;
+        }
+    }
+    public Ticket() {
+    }
+
+    public void setTicketID(int ticketID) {
+        this.ticketID = ticketID;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setThisTime(Time thisTime) {
+        this.thisTime = thisTime;
+    }
+
+    public void setThisPrice(Price thisPrice) {
+        this.thisPrice = thisPrice;
+    }
+
+    public void setThisFilm(String thisFilm) {
+        this.thisFilm = thisFilm;
+    }
+
+    public void setFilmID(int filmID) {
+        this.filmID = filmID;
+    }
 
     public Time getTime() {
         return thisTime;

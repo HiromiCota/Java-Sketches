@@ -15,8 +15,8 @@ public class MovieGUI extends javax.swing.JFrame {
     File films = new File("/src/Movie/Films.xml");
     File tickets = new File("/src/Movie/Ticket.xml");
 
-    public final String[] regularTicket = {"Regular","Matinee"};
-    
+    public final String[] regularTicket = {"Regular", "Matinee"};
+
     /**
      * Creates new form MovieGUI
      */
@@ -680,16 +680,11 @@ public class MovieGUI extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(showTimejPanelLayout.createSequentialGroup()
                                 .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showTimejPanelLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(editShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10))
-                                    .addGroup(showTimejPanelLayout.createSequentialGroup()
-                                        .addGroup(showTimejPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(addShowTimejButton)
-                                            .addComponent(loadShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(saveShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(addShowTimejButton)
+                                    .addComponent(loadShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(saveShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(editShowTimejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(showEditjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
@@ -874,19 +869,18 @@ public class MovieGUI extends javax.swing.JFrame {
     private void loadShowTimejMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadShowTimejMenuItemActionPerformed
         // TODO add your handling code here:
         FileSelector load = new FileSelector(this, true);
-        
-        
-        
+
     }//GEN-LAST:event_loadShowTimejMenuItemActionPerformed
 
     private void quitjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitjMenuItemActionPerformed
         int quit = (JOptionPane.showConfirmDialog(
-                rootPane, 
-                "Are you sure you want to quit?", 
-                "Qutting so soon?", 
+                rootPane,
+                "Are you sure you want to quit?",
+                "Qutting so soon?",
                 JOptionPane.YES_NO_OPTION));
-        if (quit == JOptionPane.YES_OPTION)
+        if (quit == JOptionPane.YES_OPTION) {
             System.exit(0);
+        }
     }//GEN-LAST:event_quitjMenuItemActionPerformed
 
     private void addRegularjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRegularjButtonActionPerformed
@@ -990,7 +984,7 @@ public class MovieGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lastTransjButtonActionPerformed
 
     private void aboutjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutjMenuItemActionPerformed
-        About about = new About(this,true);
+        About about = new About(this, true);
         about.setLocationRelativeTo(null);
         about.setVisible(true);
     }//GEN-LAST:event_aboutjMenuItemActionPerformed
@@ -1026,7 +1020,7 @@ public class MovieGUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MovieGUI().setVisible(true);
-                
+
             }
         });
     }

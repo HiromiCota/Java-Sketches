@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Movie;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,11 +10,20 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
+ * This class contains all the parsers and document methods for I/O
  *
  * @author Hiromi
  */
 public class FileUtilities {
-    
+
+    /**
+     * Checks to make sure the Document is actually XML and is for the requested
+     * tag type
+     *
+     * @param doc
+     * @param tag
+     * @return
+     */
     public static int validateDoc(Document doc, String tag) {
         // If it's not XML, return -1
         if (doc.getXmlVersion() == null) {
@@ -35,18 +37,38 @@ public class FileUtilities {
         return 0;
     } //The version of XML shouldn't matter. But, if it's not XML, we need to stop.
 
+    /**
+     * Makes sure the Cart isn't empty
+     *
+     * @param cart
+     * @return
+     */
     public Boolean validateTransactions(Cart cart) {
         return !cart.isEmpty();
     }
-    
-    public static Document getDoc() throws ParserConfigurationException{
-        
+
+    /**
+     * Generates a new Document for writing
+     *
+     * @return
+     * @throws ParserConfigurationException
+     */
+    public static Document getDoc() throws ParserConfigurationException {
         //Need the factory and the builder to generator DOM XML
         DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
-        return documentBuilder.newDocument();        
+        return documentBuilder.newDocument();
     }
-    
+
+    /**
+     * Parses an XML file to a Document
+     *
+     * @param file
+     * @return
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException
+     */
     public static Document parseXmlToDoc(File file) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();

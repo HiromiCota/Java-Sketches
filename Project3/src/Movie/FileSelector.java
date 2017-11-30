@@ -17,6 +17,10 @@ public class FileSelector extends javax.swing.JDialog {
     public FileSelector(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        // Need a jFileChooser object to get the data from this form
+        /* Also, make a new constructor/method to call this constructor
+        That way, the same main constructor can be used for save and load
+         */
     }
 
     /**
@@ -59,7 +63,7 @@ public class FileSelector extends javax.swing.JDialog {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

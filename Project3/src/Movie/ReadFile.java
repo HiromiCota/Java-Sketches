@@ -29,19 +29,19 @@ import org.xml.sax.SAXException;
  * @author Hiromi Cota
  */
 public class ReadFile {
-    public final String[] FILM_TAGS = {
+    public static final String[] FILM_TAGS = {
         "Film",             //0
         "FilmID",           //1
         "Title",            //2
         "Length",           //3
         "Rating" };         //4
-    public final String[] SHOW_TIME_TAGS = {
+    public static final String[] SHOW_TIME_TAGS = {
         "Showtime",         //0
         "ShowID",           //1
         "Hour",             //2
         "Minute",           //3
         "Tickets"};         //4
-    public final String[] TICKET_TAGS = {
+    public static final String[] TICKET_TAGS = {
         "Ticket",           //0
         "TicketID",         //1
         "Quantity",         //2

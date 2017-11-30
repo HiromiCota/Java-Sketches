@@ -49,7 +49,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="iconsjPanel" min="-2" pref="112" max="-2" attributes="0"/>
+                  <Component id="iconsjPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="textjScrollPane" pref="375" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -65,13 +65,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="iconsjPanel" max="32767" attributes="0"/>
                       <Component id="textjScrollPane" max="32767" attributes="0"/>
-                      <Component id="iconsjPanel" pref="251" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="OKjButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -90,7 +90,7 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="The ANC 9,000!&#xa;&#xa;Created by Over 9,000 Studios,&#xa;the ANC 9,000 loads a theater&apos;s films, showtimes, and transaction history from external XML files. &#xa;&#xa;In case of data loss, The ANC 9,000 can also be used to create new XML files.&#xa;&#xa;&#xa;Copyright 2017&#xa;Not to be used for evil."/>
+                <Property name="text" type="java.lang.String" value="The ANC 9,000!&#xa;&#xa;Created by Over 9,000 Studios,&#xa;the ANC 9,000 loads a theater&apos;s films, showtimes, and transaction history from external XML files. &#xa;&#xa;Users can then sell tickets, edit showtimes and films, and review past transactions.&#xa;&#xa;In case of data loss, The ANC 9,000 can also be used to create new XML files.&#xa;&#xa;&#xa;Copyright 2017&#xa;Not to be used for evil."/>
                 <Property name="wrapStyleWord" type="boolean" value="true"/>
               </Properties>
             </Component>
@@ -105,24 +105,23 @@
             </Property>
           </Properties>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-            <Property name="columns" type="int" value="2"/>
-            <Property name="rows" type="int" value="2"/>
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="imagejLabel" min="-2" pref="110" max="-2" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="imagejLabel" alignment="0" pref="294" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="piIconjLabel">
+            <Component class="javax.swing.JLabel" name="imagejLabel">
               <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Approximator/piPic.jpg"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="eIconjLabel">
-              <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Approximator/ePic.jpg"/>
+                  <Image iconType="3" name="/Images/film_med.jpg"/>
                 </Property>
               </Properties>
             </Component>

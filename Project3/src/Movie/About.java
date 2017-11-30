@@ -21,7 +21,7 @@ public class About extends javax.swing.JDialog {
     public About(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Approximator/piIcon.jpg"));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/film_icon.jpg"));
     }
 
     /**
@@ -37,8 +37,7 @@ public class About extends javax.swing.JDialog {
         textjScrollPane = new javax.swing.JScrollPane();
         jTextArea = new javax.swing.JTextArea();
         iconsjPanel = new javax.swing.JPanel();
-        piIconjLabel = new javax.swing.JLabel();
-        eIconjLabel = new javax.swing.JLabel();
+        imagejLabel = new javax.swing.JLabel();
         OKjButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -51,20 +50,24 @@ public class About extends javax.swing.JDialog {
         jTextArea.setColumns(20);
         jTextArea.setLineWrap(true);
         jTextArea.setRows(5);
-        jTextArea.setText("The ANC 9,000!\n\nCreated by Over 9,000 Studios,\nthe ANC 9,000 loads a theater's films, showtimes, and transaction history from external XML files. \n\nIn case of data loss, The ANC 9,000 can also be used to create new XML files.\n\n\nCopyright 2017\nNot to be used for evil.");
+        jTextArea.setText("The ANC 9,000!\n\nCreated by Over 9,000 Studios,\nthe ANC 9,000 loads a theater's films, showtimes, and transaction history from external XML files. \n\nUsers can then sell tickets, edit showtimes and films, and review past transactions.\n\nIn case of data loss, The ANC 9,000 can also be used to create new XML files.\n\n\nCopyright 2017\nNot to be used for evil.");
         jTextArea.setWrapStyleWord(true);
         textjScrollPane.setViewportView(jTextArea);
 
         iconsjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        iconsjPanel.setLayout(new java.awt.GridLayout(2, 2));
 
-        piIconjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        piIconjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Approximator/piPic.jpg"))); // NOI18N
-        iconsjPanel.add(piIconjLabel);
+        imagejLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/film_med.jpg"))); // NOI18N
 
-        eIconjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eIconjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Approximator/ePic.jpg"))); // NOI18N
-        iconsjPanel.add(eIconjLabel);
+        javax.swing.GroupLayout iconsjPanelLayout = new javax.swing.GroupLayout(iconsjPanel);
+        iconsjPanel.setLayout(iconsjPanelLayout);
+        iconsjPanelLayout.setHorizontalGroup(
+            iconsjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imagejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        iconsjPanelLayout.setVerticalGroup(
+            iconsjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imagejLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+        );
 
         OKjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OKjButton.setText("OK");
@@ -81,7 +84,7 @@ public class About extends javax.swing.JDialog {
             backgroundjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(iconsjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(iconsjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(textjScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                 .addContainerGap())
@@ -94,12 +97,12 @@ public class About extends javax.swing.JDialog {
             backgroundjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundjPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(backgroundjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(textjScrollPane)
-                    .addComponent(iconsjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGroup(backgroundjPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconsjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textjScrollPane))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(OKjButton)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,10 +131,9 @@ public class About extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton OKjButton;
     private javax.swing.JPanel backgroundjPanel;
-    private javax.swing.JLabel eIconjLabel;
     private javax.swing.JPanel iconsjPanel;
+    private javax.swing.JLabel imagejLabel;
     private javax.swing.JTextArea jTextArea;
-    private javax.swing.JLabel piIconjLabel;
     private javax.swing.JScrollPane textjScrollPane;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,13 +22,13 @@ import org.xml.sax.SAXException;
  */
 public class FileUtilities {
     
-    public static int validateDoc(Document doc) {
+    public static int validateDoc(Document doc, String tag) {
         // If it's not XML, return -1
         if (doc.getXmlVersion() == null) {
             return -1;
         } else if (doc.hasChildNodes()) {
             //If there are Transaction elements, count them and return that.
-            NodeList list = doc.getElementsByTagName("Transaction #");
+            NodeList list = doc.getElementsByTagName(tag);
             return list.getLength();
         }
         //If there are no child elements, return 0

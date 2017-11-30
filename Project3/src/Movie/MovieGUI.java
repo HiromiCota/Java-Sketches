@@ -1,5 +1,6 @@
 package Movie;
 
+import java.awt.Toolkit;
 import java.io.File;
 import java.sql.Time;
 import javax.swing.JFileChooser;
@@ -21,6 +22,7 @@ public class MovieGUI extends javax.swing.JFrame {
      */
     public MovieGUI() {
         initComponents();
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("src/Images/film_icon.jpg"));
         Splash splash = new Splash(this, true);
         splash.setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
@@ -174,6 +176,7 @@ public class MovieGUI extends javax.swing.JFrame {
         addTicketjPanel.add(addPaneljLabel);
 
         addjSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        addjSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         addTicketjPanel.add(addjSpinner);
 
         addRegularjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -211,6 +214,7 @@ public class MovieGUI extends javax.swing.JFrame {
         removeTicketjPanel.add(removePaneljLabel);
 
         removejSpinner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        removejSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         removeTicketjPanel.add(removejSpinner);
 
         removeRegularjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -251,22 +255,47 @@ public class MovieGUI extends javax.swing.JFrame {
 
         payCashjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         payCashjButton.setText("Cash");
+        payCashjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payCashjButtonActionPerformed(evt);
+            }
+        });
         checkOutjPanel.add(payCashjButton);
 
         payCreditjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         payCreditjButton.setText("Credit");
+        payCreditjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payCreditjButtonActionPerformed(evt);
+            }
+        });
         checkOutjPanel.add(payCreditjButton);
 
         payCheckjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         payCheckjButton.setText("Check");
+        payCheckjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payCheckjButtonActionPerformed(evt);
+            }
+        });
         checkOutjPanel.add(payCheckjButton);
 
         payRewardjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         payRewardjButton.setText("Rewards");
+        payRewardjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payRewardjButtonActionPerformed(evt);
+            }
+        });
         checkOutjPanel.add(payRewardjButton);
 
         clearAlljButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         clearAlljButton.setText("Clear All");
+        clearAlljButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAlljButtonActionPerformed(evt);
+            }
+        });
         checkOutjPanel.add(clearAlljButton);
 
         javax.swing.GroupLayout ticketjPanelLayout = new javax.swing.GroupLayout(ticketjPanel);
@@ -357,18 +386,43 @@ public class MovieGUI extends javax.swing.JFrame {
 
         addFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addFilmjButton.setText("Add New Film");
+        addFilmjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFilmjButtonActionPerformed(evt);
+            }
+        });
 
         editFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         editFilmjButton.setText("Edit Film");
+        editFilmjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editFilmjButtonActionPerformed(evt);
+            }
+        });
 
         deleteFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         deleteFilmjButton.setText("Delete Film");
+        deleteFilmjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteFilmjButtonActionPerformed(evt);
+            }
+        });
 
         saveFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         saveFilmjButton.setText("Save Schedule");
+        saveFilmjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveFilmjButtonActionPerformed(evt);
+            }
+        });
 
         loadFilmjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         loadFilmjButton.setText("Load Schedule");
+        loadFilmjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadFilmjButtonActionPerformed(evt);
+            }
+        });
 
         editFilmjPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -567,18 +621,43 @@ public class MovieGUI extends javax.swing.JFrame {
 
         addShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         addShowTimejButton.setText("Add New Showtime");
+        addShowTimejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addShowTimejButtonActionPerformed(evt);
+            }
+        });
 
         editShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         editShowTimejButton.setText("Edit Showtime");
+        editShowTimejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editShowTimejButtonActionPerformed(evt);
+            }
+        });
 
         saveShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         saveShowTimejButton.setText("Save Schedule");
+        saveShowTimejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveShowTimejButtonActionPerformed(evt);
+            }
+        });
 
         deleteShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         deleteShowTimejButton.setText("Delete Showtime");
+        deleteShowTimejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteShowTimejButtonActionPerformed(evt);
+            }
+        });
 
         loadShowTimejButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         loadShowTimejButton.setText("Load Schedule");
+        loadShowTimejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadShowTimejButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout showTimejPanelLayout = new javax.swing.GroupLayout(showTimejPanel);
         showTimejPanel.setLayout(showTimejPanelLayout);
@@ -640,17 +719,38 @@ public class MovieGUI extends javax.swing.JFrame {
 
         containerjTabbedPane.addTab("Edit Showtimes", showTimejPanel);
 
+        transOutputjTextArea.setEditable(false);
         transOutputjTextArea.setColumns(20);
         transOutputjTextArea.setRows(5);
         transjScrollPane.setViewportView(transOutputjTextArea);
 
         nextTransjButton.setText("Next");
+        nextTransjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextTransjButtonActionPerformed(evt);
+            }
+        });
 
         prevTransjButton.setText("Prev");
+        prevTransjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prevTransjButtonActionPerformed(evt);
+            }
+        });
 
         lastTransjButton.setText("Last");
+        lastTransjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastTransjButtonActionPerformed(evt);
+            }
+        });
 
         firstTransjButton.setText("First");
+        firstTransjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstTransjButtonActionPerformed(evt);
+            }
+        });
 
         transTextjLabel.setText("Now viewing Transaction#");
 
@@ -740,6 +840,11 @@ public class MovieGUI extends javax.swing.JFrame {
         helpjMenu.setText("Help");
 
         aboutjMenuItem.setText("About");
+        aboutjMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutjMenuItemActionPerformed(evt);
+            }
+        });
         helpjMenu.add(aboutjMenuItem);
 
         jMenuBar.add(helpjMenu);
@@ -807,6 +912,88 @@ public class MovieGUI extends javax.swing.JFrame {
     private void removeChildjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeChildjButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_removeChildjButtonActionPerformed
+
+    private void payCashjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payCashjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payCashjButtonActionPerformed
+
+    private void payCreditjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payCreditjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payCreditjButtonActionPerformed
+
+    private void payCheckjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payCheckjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payCheckjButtonActionPerformed
+
+    private void payRewardjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payRewardjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_payRewardjButtonActionPerformed
+
+    private void clearAlljButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAlljButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearAlljButtonActionPerformed
+
+    private void addFilmjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFilmjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addFilmjButtonActionPerformed
+
+    private void editFilmjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editFilmjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editFilmjButtonActionPerformed
+
+    private void deleteFilmjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteFilmjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteFilmjButtonActionPerformed
+
+    private void saveFilmjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveFilmjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveFilmjButtonActionPerformed
+
+    private void loadFilmjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadFilmjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loadFilmjButtonActionPerformed
+
+    private void addShowTimejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addShowTimejButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addShowTimejButtonActionPerformed
+
+    private void editShowTimejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editShowTimejButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editShowTimejButtonActionPerformed
+
+    private void deleteShowTimejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteShowTimejButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteShowTimejButtonActionPerformed
+
+    private void saveShowTimejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveShowTimejButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveShowTimejButtonActionPerformed
+
+    private void loadShowTimejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadShowTimejButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loadShowTimejButtonActionPerformed
+
+    private void firstTransjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstTransjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstTransjButtonActionPerformed
+
+    private void prevTransjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevTransjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prevTransjButtonActionPerformed
+
+    private void nextTransjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextTransjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextTransjButtonActionPerformed
+
+    private void lastTransjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastTransjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastTransjButtonActionPerformed
+
+    private void aboutjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutjMenuItemActionPerformed
+        About about = new About(this,true);
+        about.setLocationRelativeTo(null);
+        about.setVisible(true);
+    }//GEN-LAST:event_aboutjMenuItemActionPerformed
 
     /**
      * @param args the command line arguments

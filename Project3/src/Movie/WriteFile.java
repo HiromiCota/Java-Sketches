@@ -38,11 +38,11 @@ public class WriteFile {
             doc = FileUtilities.parseXmlToDoc(file);
         }
 
-        int validation = FileUtilities.validateDoc(doc);
-        switch (validation) {
+        int validation = FileUtilities.validateDoc(doc,ReadFile.TICKET_TAGS[0]);
+        switch (validation) {   
             case -1:
                 return false;
-            case 0:
+            case 0: //Couldn't find any nodes. 
                 doc = buildRootNode(cart, validation); //Overwriting. Hope it's blank.
                 break;
             default:
@@ -58,6 +58,7 @@ public class WriteFile {
 
         return true;
     }
+
 
     public Boolean appendTicketSales(Cart cart, Document doc, int startIndex) {
         //Start traversing the ArrayList
